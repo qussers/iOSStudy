@@ -13,6 +13,8 @@
 #import "LZYSubjectTitleModel.h"
 #import "LZYHomeSegView.h"
 #import "LZYSecondSubjectTableViewController.h"
+
+#import "UIColor+LZYAdd.h"
 @interface LZYHomeViewController ()<iCarouselDataSource, iCarouselDelegate>
 
 
@@ -56,12 +58,14 @@
 
 - (void)requestData
 {
+    [self.view beginLoading];
     [LZYNetwork requestSubjectTitlesWithTableName:nil success:^(NSArray *result) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:result];
         [self.carouselView reloadData];
+        [self.view endLoading];
     } failure:^(id result) {
-        
+        [self.view loadError];
     }];
 }
 
@@ -84,6 +88,7 @@
     if ([view isKindOfClass:[LZYHomeSegView class]]) {
         LZYHomeSegView *myView = (LZYHomeSegView *)view;
         LZYSubjectTitleModel *model = self.dataSource[index];
+        myView.backgroundColor = [UIColor colorWithHexString:model.color];
         [myView.titleBtn setTitle:model.subTitle forState:UIControlStateNormal];
     }
 

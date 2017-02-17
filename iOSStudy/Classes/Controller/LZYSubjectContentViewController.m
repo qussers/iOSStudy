@@ -30,6 +30,7 @@
 
 - (void)loadWebViewContent
 {
+    [self.view beginLoading];
     if (!self.webUrl) {
         return;
     }
@@ -39,9 +40,17 @@
 }
 
 
+#pragma mark - 
 
+- (void)webView:(IMYWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self.view loadError];
+}
 
-
+- (void)webViewDidStartLoad:(IMYWebView *)webView
+{
+    [self.view endLoading];
+}
 
 #pragma mark - lazy
 - (IMYWebView *)webView

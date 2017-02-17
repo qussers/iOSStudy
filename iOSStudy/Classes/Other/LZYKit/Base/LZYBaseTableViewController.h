@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UIView+NetLoadView.h"
 @interface LZYBaseTableViewController : UITableViewController
 
 @end

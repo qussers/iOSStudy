@@ -13,4 +13,18 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *subTagLabel;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *firstStar;
+
+@property (weak, nonatomic) IBOutlet UIImageView *secondStar;
+
+@property (weak, nonatomic) IBOutlet UIImageView *thirdStar;
+
+@property (weak, nonatomic) IBOutlet UIImageView *fouthStar;
+
+@property (weak, nonatomic) IBOutlet UIImageView *fifthStar;
+
+- (void)configeWithDifficult:(NSInteger)difficult;
 @end

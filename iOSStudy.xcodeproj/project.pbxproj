@@ -16,6 +16,11 @@
 		0F0516B91E569E35000EBF72 /* IMYWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0516B51E569E35000EBF72 /* IMYWebView.m */; };
 		0F0516BA1E569E35000EBF72 /* WYWeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0516B71E569E35000EBF72 /* WYWeakScriptMessageDelegate.m */; };
 		0F0516FD1E56D165000EBF72 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0516FC1E56D165000EBF72 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		0F0517011E56D783000EBF72 /* UIColor+LZYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0517001E56D783000EBF72 /* UIColor+LZYAdd.m */; };
+		0F0517051E56D874000EBF72 /* NSString+LZYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0517041E56D874000EBF72 /* NSString+LZYAdd.m */; };
+		0F0517091E56E323000EBF72 /* LZYNetLoadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0517081E56E323000EBF72 /* LZYNetLoadView.xib */; };
+		0F05170C1E56E372000EBF72 /* LZYNetLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05170B1E56E372000EBF72 /* LZYNetLoadView.m */; };
+		0F05170F1E56E594000EBF72 /* UIView+NetLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05170E1E56E594000EBF72 /* UIView+NetLoadView.m */; };
 		0F76A5741E5445E40070EB3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F76A5731E5445E40070EB3D /* main.m */; };
 		0F76A5771E5445E40070EB3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F76A5761E5445E40070EB3D /* AppDelegate.m */; };
 		0F76A57D1E5445E40070EB3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F76A57B1E5445E40070EB3D /* Main.storyboard */; };
@@ -76,6 +81,15 @@
 		0F0516B71E569E35000EBF72 /* WYWeakScriptMessageDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWeakScriptMessageDelegate.m; sourceTree = "<group>"; };
 		0F0516FB1E56D165000EBF72 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		0F0516FC1E56D165000EBF72 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		0F0516FF1E56D783000EBF72 /* UIColor+LZYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LZYAdd.h"; sourceTree = "<group>"; };
+		0F0517001E56D783000EBF72 /* UIColor+LZYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LZYAdd.m"; sourceTree = "<group>"; };
+		0F0517031E56D874000EBF72 /* NSString+LZYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LZYAdd.h"; sourceTree = "<group>"; };
+		0F0517041E56D874000EBF72 /* NSString+LZYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LZYAdd.m"; sourceTree = "<group>"; };
+		0F0517081E56E323000EBF72 /* LZYNetLoadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LZYNetLoadView.xib; sourceTree = "<group>"; };
+		0F05170A1E56E372000EBF72 /* LZYNetLoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYNetLoadView.h; sourceTree = "<group>"; };
+		0F05170B1E56E372000EBF72 /* LZYNetLoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYNetLoadView.m; sourceTree = "<group>"; };
+		0F05170D1E56E594000EBF72 /* UIView+NetLoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NetLoadView.h"; sourceTree = "<group>"; };
+		0F05170E1E56E594000EBF72 /* UIView+NetLoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NetLoadView.m"; sourceTree = "<group>"; };
 		0F76A56F1E5445E40070EB3D /* iOSStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F76A5731E5445E40070EB3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F76A5751E5445E40070EB3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
@@ -175,6 +189,43 @@
 				0F0516FC1E56D165000EBF72 /* UINavigationController+FDFullscreenPopGesture.m */,
 			);
 			path = NavigationPush;
+			sourceTree = "<group>";
+		};
+		0F0516FE1E56D778000EBF72 /* LZYUIColor */ = {
+			isa = PBXGroup;
+			children = (
+				0F0516FF1E56D783000EBF72 /* UIColor+LZYAdd.h */,
+				0F0517001E56D783000EBF72 /* UIColor+LZYAdd.m */,
+			);
+			path = LZYUIColor;
+			sourceTree = "<group>";
+		};
+		0F0517021E56D86B000EBF72 /* LZYNSString */ = {
+			isa = PBXGroup;
+			children = (
+				0F0517031E56D874000EBF72 /* NSString+LZYAdd.h */,
+				0F0517041E56D874000EBF72 /* NSString+LZYAdd.m */,
+			);
+			path = LZYNSString;
+			sourceTree = "<group>";
+		};
+		0F0517061E56DF95000EBF72 /* LZYUnloadView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LZYUnloadView;
+			sourceTree = "<group>";
+		};
+		0F0517071E56DFED000EBF72 /* LZYNONetView */ = {
+			isa = PBXGroup;
+			children = (
+				0F0517081E56E323000EBF72 /* LZYNetLoadView.xib */,
+				0F05170A1E56E372000EBF72 /* LZYNetLoadView.h */,
+				0F05170B1E56E372000EBF72 /* LZYNetLoadView.m */,
+				0F05170D1E56E594000EBF72 /* UIView+NetLoadView.h */,
+				0F05170E1E56E594000EBF72 /* UIView+NetLoadView.m */,
+			);
+			path = LZYNONetView;
 			sourceTree = "<group>";
 		};
 		0F76A5661E5445E40070EB3D = {
@@ -282,6 +333,10 @@
 		0F76A5A91E5447AE0070EB3D /* LZYKit */ = {
 			isa = PBXGroup;
 			children = (
+				0F0517071E56DFED000EBF72 /* LZYNONetView */,
+				0F0517061E56DF95000EBF72 /* LZYUnloadView */,
+				0F0517021E56D86B000EBF72 /* LZYNSString */,
+				0F0516FE1E56D778000EBF72 /* LZYUIColor */,
 				0F0516A71E569C37000EBF72 /* LZYViewController */,
 				0F76A5DA1E55AF580070EB3D /* LZYDelegateRegister */,
 				0F76A5CF1E55AF340070EB3D /* LZYCollectionView */,
@@ -546,6 +601,7 @@
 			files = (
 				0F76A5CE1E55A4BD0070EB3D /* LZYHomeSegView.xib in Resources */,
 				0F76A5821E5445E40070EB3D /* LaunchScreen.storyboard in Resources */,
+				0F0517091E56E323000EBF72 /* LZYNetLoadView.xib in Resources */,
 				0F76A57F1E5445E40070EB3D /* Assets.xcassets in Resources */,
 				0F76A5D81E55AF340070EB3D /* LZYEasyCollectionViewCell.xib in Resources */,
 				0F76A57D1E5445E40070EB3D /* Main.storyboard in Resources */,
@@ -623,14 +679,17 @@
 			files = (
 				0F0516B91E569E35000EBF72 /* IMYWebView.m in Sources */,
 				0F0516A31E5686C7000EBF72 /* LZYSecondSubjectModel.m in Sources */,
+				0F05170C1E56E372000EBF72 /* LZYNetLoadView.m in Sources */,
 				0F76A5771E5445E40070EB3D /* AppDelegate.m in Sources */,
 				0F76A5B01E544EB50070EB3D /* LZYSegCollectionViewController.m in Sources */,
 				0F76A5CC1E55A2580070EB3D /* UIView+Xib.m in Sources */,
 				0F76A5DD1E55AF700070EB3D /* LZYDelegateRegister.m in Sources */,
+				0F05170F1E56E594000EBF72 /* UIView+NetLoadView.m in Sources */,
 				0F76A5E91E55C07D0070EB3D /* LZYBaseTableViewController.m in Sources */,
 				0F76A5741E5445E40070EB3D /* main.m in Sources */,
 				0F76A5B71E5531DC0070EB3D /* LZYHomeViewController.m in Sources */,
 				0F0516A61E568EA2000EBF72 /* LZYBmobQueryTypeModel.m in Sources */,
+				0F0517051E56D874000EBF72 /* NSString+LZYAdd.m in Sources */,
 				0F76A5EC1E55C0CB0070EB3D /* LZYSecondSubjectTableViewController.m in Sources */,
 				0F0516BA1E569E35000EBF72 /* WYWeakScriptMessageDelegate.m in Sources */,
 				0F0516AA1E569C56000EBF72 /* LZYNetwork.m in Sources */,
@@ -641,6 +700,7 @@
 				0F0516B81E569E35000EBF72 /* IMY_NJKWebViewProgress.m in Sources */,
 				0F76A5D91E55AF340070EB3D /* LZYCollectionViewFlowLayout.m in Sources */,
 				0F76A5B41E5531AA0070EB3D /* LZYBaseViewController.m in Sources */,
+				0F0517011E56D783000EBF72 /* UIColor+LZYAdd.m in Sources */,
 				0F76A5E31E55B4AE0070EB3D /* LZYSubjectTitleModel.m in Sources */,
 				0F0516B01E569DE3000EBF72 /* LZYSubjectContentViewController.m in Sources */,
 				0F76A5E61E55BA520070EB3D /* LZYHomeSegView.m in Sources */,

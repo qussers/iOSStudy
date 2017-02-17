@@ -13,4 +13,7 @@
 //科目名称
 @property (nonatomic, copy) NSString *subTitle;
 
+//所属模块主题颜色
+@property (nonatomic, copy) NSString *color;
+
 @end

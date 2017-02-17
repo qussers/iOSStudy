@@ -32,14 +32,21 @@
 
 - (void)requestData
 {
+
+    [self.tableView beginLoading];
     [LZYNetwork requestSubjectContentWithSubjectTag:self.subjectTag success:^(NSArray *result) {
         if (result) {
             [self.dataSource removeAllObjects];
             [self.dataSource addObjectsFromArray:result];
             [self.tableView reloadData];
+            if (result.count == 0) {
+                [self.tableView loadNone];
+            }else{
+                [self.tableView endLoading];
+            }
         }
     } failure:^(id result) {
-        
+        [self.tableView loadError];
     }];
 
 }
@@ -62,6 +69,8 @@
     
     LZYSecondSubjectModel *model = self.dataSource[indexPath.row];
     cell.subTitleLabel.text = model.subjectTitle;
+    cell.subTagLabel.text = model.tag;
+    [cell configeWithDifficult:model.difficult];
     return cell;
 }
 

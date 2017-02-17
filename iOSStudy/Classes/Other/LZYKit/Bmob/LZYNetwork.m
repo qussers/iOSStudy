@@ -96,6 +96,7 @@
             for (BmobObject *obj in result) {
                 LZYSubjectTitleModel *model = [[LZYSubjectTitleModel alloc] initFromBmobObject:obj];
                 model.subTitle = [obj objectForKey:@"title"];
+                model.color = [obj objectForKey:@"color"];
                 [muResult addObject:model];
             }
             success(muResult);
@@ -132,7 +133,8 @@
                 model.answerUrl = [obj objectForKey:@"content"];
                 model.subjectTitle = [obj objectForKey:@"title"];
                 model.subjectTag = [obj objectForKey:@"subject_tag"];
-                model.difficult = [[obj objectForKey:@"diffcult"] integerValue];
+                model.tag  = [obj objectForKey:@"tag"];
+                model.difficult = [[obj objectForKey:@"difficult"] integerValue];
                 [muResult addObject:model];
             }
             success(muResult);
