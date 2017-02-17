@@ -1,0 +1,16 @@
+//
+//  LZYSecondSubjectTableViewCell.h
+//  iOSStudy
+//
+//  Created by 李志宇 on 17/2/16.
+//  Copyright © 2017年 izijia. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface LZYSecondSubjectTableViewCell : UITableViewCell
+
+
+@property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
+
+@end
