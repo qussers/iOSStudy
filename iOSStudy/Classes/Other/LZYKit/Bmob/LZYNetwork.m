@@ -112,6 +112,7 @@
 }
 
 + (void)requestSubjectContentWithSubjectTag:(NSString *)subjectTag
+                                  tableName:(NSString *)tableName
                                     success:(void (^)(NSArray *))success
                                     failure:(void (^)(id))failure
 {
@@ -124,7 +125,7 @@
        LZYBmobQueryTypeModel *queryModel = [[LZYBmobQueryTypeModel alloc] initWithQueryKeyName:@"subject_tag" queryType:kEqual disValue:subjectTag];
         [mConditions addObject:queryModel];
     }
-    [self requestDataWithBMOBTableName:LZYBMOBSUBJECTSTRUCTURE conditions:mConditions success:^(id result) {
+    [self requestDataWithBMOBTableName:tableName conditions:mConditions success:^(id result) {
        
         if ([result isKindOfClass:[NSArray class]]) {
             NSMutableArray *muResult = @[].mutableCopy;

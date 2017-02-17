@@ -21,6 +21,7 @@
 		0F0517091E56E323000EBF72 /* LZYNetLoadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0517081E56E323000EBF72 /* LZYNetLoadView.xib */; };
 		0F05170C1E56E372000EBF72 /* LZYNetLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05170B1E56E372000EBF72 /* LZYNetLoadView.m */; };
 		0F05170F1E56E594000EBF72 /* UIView+NetLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05170E1E56E594000EBF72 /* UIView+NetLoadView.m */; };
+		0F0517171E570EE2000EBF72 /* LZYHomeSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0517161E570EE2000EBF72 /* LZYHomeSubViewController.m */; };
 		0F76A5741E5445E40070EB3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F76A5731E5445E40070EB3D /* main.m */; };
 		0F76A5771E5445E40070EB3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F76A5761E5445E40070EB3D /* AppDelegate.m */; };
 		0F76A57D1E5445E40070EB3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F76A57B1E5445E40070EB3D /* Main.storyboard */; };
@@ -90,6 +91,8 @@
 		0F05170B1E56E372000EBF72 /* LZYNetLoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYNetLoadView.m; sourceTree = "<group>"; };
 		0F05170D1E56E594000EBF72 /* UIView+NetLoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NetLoadView.h"; sourceTree = "<group>"; };
 		0F05170E1E56E594000EBF72 /* UIView+NetLoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NetLoadView.m"; sourceTree = "<group>"; };
+		0F0517151E570EE2000EBF72 /* LZYHomeSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYHomeSubViewController.h; sourceTree = "<group>"; };
+		0F0517161E570EE2000EBF72 /* LZYHomeSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYHomeSubViewController.m; sourceTree = "<group>"; };
 		0F76A56F1E5445E40070EB3D /* iOSStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F76A5731E5445E40070EB3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F76A5751E5445E40070EB3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 				0F76A5EB1E55C0CB0070EB3D /* LZYSecondSubjectTableViewController.m */,
 				0F0516AE1E569DE3000EBF72 /* LZYSubjectContentViewController.h */,
 				0F0516AF1E569DE3000EBF72 /* LZYSubjectContentViewController.m */,
+				0F0517151E570EE2000EBF72 /* LZYHomeSubViewController.h */,
+				0F0517161E570EE2000EBF72 /* LZYHomeSubViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -703,6 +708,7 @@
 				0F0517011E56D783000EBF72 /* UIColor+LZYAdd.m in Sources */,
 				0F76A5E31E55B4AE0070EB3D /* LZYSubjectTitleModel.m in Sources */,
 				0F0516B01E569DE3000EBF72 /* LZYSubjectContentViewController.m in Sources */,
+				0F0517171E570EE2000EBF72 /* LZYHomeSubViewController.m in Sources */,
 				0F76A5E61E55BA520070EB3D /* LZYHomeSegView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

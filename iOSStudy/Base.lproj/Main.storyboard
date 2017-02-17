@@ -40,11 +40,64 @@
                     <connections>
                         <outlet property="carouselView" destination="7mi-cy-ofE" id="KHM-Jx-P35"/>
                         <segue destination="vB9-xc-Agh" kind="show" id="Ukv-eU-dHV"/>
+                        <segue destination="ZfS-vF-A1l" kind="show" id="xI1-2p-WA0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GyU-xk-WNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-679" y="-377"/>
+            <point key="canvasLocation" x="-767" y="-377"/>
+        </scene>
+        <!--Home Sub View Controller-->
+        <scene sceneID="lbz-xc-uzD">
+            <objects>
+                <viewController storyboardIdentifier="homeSubViewController" id="ZfS-vF-A1l" customClass="LZYHomeSubViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jBu-wK-nr0"/>
+                        <viewControllerLayoutGuide type="bottom" id="di4-6o-LJ5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DyF-xg-ZGy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wf4-g2-BPu">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ZfS-vF-A1l" id="iAr-x5-rgh"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wf4-g2-BPu" firstAttribute="leading" secondItem="DyF-xg-ZGy" secondAttribute="leading" id="boh-Bu-yIA"/>
+                            <constraint firstAttribute="bottom" secondItem="wf4-g2-BPu" secondAttribute="bottom" id="h4X-6h-OnM"/>
+                            <constraint firstItem="wf4-g2-BPu" firstAttribute="top" secondItem="jBu-wK-nr0" secondAttribute="bottom" id="vFB-Ks-wRR"/>
+                            <constraint firstAttribute="trailing" secondItem="wf4-g2-BPu" secondAttribute="trailing" id="zv5-Eu-xnA"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Iao-tK-PhO">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ykI-0q-1dZ">
+                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="知识点"/>
+                                <segment title="问答题"/>
+                            </segments>
+                            <connections>
+                                <action selector="segAction:" destination="ZfS-vF-A1l" eventType="valueChanged" id="0kH-GJ-Y8X"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="contentScrollView" destination="wf4-g2-BPu" id="89E-x1-CTB"/>
+                        <outlet property="segment" destination="ykI-0q-1dZ" id="DyL-tl-wdy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iaN-cE-kdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="-385"/>
         </scene>
         <!--Second Subject Table View Controller-->
         <scene sceneID="JN9-hN-Uy2">
@@ -190,7 +243,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S5g-gQ-HOo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109.59999999999999" y="-385.45727136431788"/>
+            <point key="canvasLocation" x="154" y="-1328"/>
         </scene>
         <!--Subject Content View Controller-->
         <scene sceneID="H2r-tC-xCG">
@@ -249,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o12-GR-vPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1014" y="-1328"/>
+            <point key="canvasLocation" x="1070" y="-1328"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="IQX-mf-cIv">

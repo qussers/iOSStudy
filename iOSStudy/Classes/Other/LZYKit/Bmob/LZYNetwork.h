@@ -29,6 +29,7 @@
 
 //根据科目名称获取对应题目和资源
 + (void)requestSubjectContentWithSubjectTag:(NSString *)subjectTag
+                                  tableName:(NSString *)tableName
                                     success:(void(^)(NSArray *result))success
                                     failure:(void(^)(id result))failure;
 

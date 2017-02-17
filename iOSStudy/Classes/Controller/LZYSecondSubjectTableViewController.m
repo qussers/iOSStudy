@@ -11,6 +11,7 @@
 #import "LZYNetwork.h"
 #import "LZYSecondSubjectModel.h"
 #import "LZYSubjectContentViewController.h"
+#import "LZYGlobalDefine.h"
 @interface LZYSecondSubjectTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -34,20 +35,28 @@
 {
 
     [self.tableView beginLoading];
-    [LZYNetwork requestSubjectContentWithSubjectTag:self.subjectTag success:^(NSArray *result) {
-        if (result) {
-            [self.dataSource removeAllObjects];
-            [self.dataSource addObjectsFromArray:result];
-            [self.tableView reloadData];
-            if (result.count == 0) {
-                [self.tableView loadNone];
-            }else{
-                [self.tableView endLoading];
+    
+    NSString *tableName = self.contentType == kKnowledge ? LZYBMOBSUBJECTSTRUCTURE : LZYBMOBSUBJECTQUESTION;
+    
+    [LZYNetwork requestSubjectContentWithSubjectTag:self.subjectTag
+                                          tableName:tableName
+                                            success:^(NSArray *result) {
+            if (result) {
+                [self.dataSource removeAllObjects];
+                [self.dataSource addObjectsFromArray:result];
+                [self.tableView reloadData];
+                if (result.count == 0) {
+                    [self.tableView loadNone];
+                }else{
+                    [self.tableView endLoading];
+                }
             }
-        }
-    } failure:^(id result) {
-        [self.tableView loadError];
-    }];
+        } failure:^(id result) {
+            [self.tableView loadError];
+        }];
+ 
+    
+
 
 }
 

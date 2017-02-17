@@ -23,6 +23,9 @@
 //存储科目知识点的表名
 #define LZYBMOBSUBJECTSTRUCTURE @"LZYStructure"
 
+//存储各种问题的表名
+#define LZYBMOBSUBJECTQUESTION @"LZYSubject"
+
 
 //错误返回码
 #define LZYBMOBERRORNOTARRAY @"当前对象不为数组"

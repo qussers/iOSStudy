@@ -13,7 +13,7 @@
 #import "LZYSubjectTitleModel.h"
 #import "LZYHomeSegView.h"
 #import "LZYSecondSubjectTableViewController.h"
-
+#import "LZYHomeSubViewController.h"
 #import "UIColor+LZYAdd.h"
 @interface LZYHomeViewController ()<iCarouselDataSource, iCarouselDelegate>
 
@@ -122,7 +122,7 @@
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
     UIStoryboard *stotyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LZYSecondSubjectTableViewController *vc = [stotyboard instantiateViewControllerWithIdentifier:@"secondSubject"];
+    LZYHomeSubViewController *vc = [stotyboard instantiateViewControllerWithIdentifier:@"homeSubViewController"];
     LZYSubjectTitleModel *model = self.dataSource[index];
     vc.subjectTag = model.subTitle;
     [self.navigationController pushViewController:vc animated:YES];

@@ -8,7 +8,15 @@
 
 #import "LZYBaseTableViewController.h"
 
+typedef NS_ENUM(NSInteger, subjectContentType) {
+    kKnowledge,
+    kQuestion
+};
+
 @interface LZYSecondSubjectTableViewController : LZYBaseTableViewController
 
 @property (nonatomic, copy) NSString *subjectTag;
+
+@property (nonatomic, assign) subjectContentType contentType;
+
 @end
