@@ -54,10 +54,6 @@
         } failure:^(id result) {
             [self.tableView loadError];
         }];
- 
-    
-
-
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

@@ -293,7 +293,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1YD-6f-AZH" id="4Yr-so-lsB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -467,7 +467,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="650-cQ-zmL">
+                                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="650-cQ-zmL">
                                             <rect key="frame" x="0.0" y="0.0" width="94" height="94"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="书籍资料" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBa-Wj-2Et">
@@ -484,6 +484,7 @@
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="CdT-f8-X26" firstAttribute="centerX" secondItem="650-cQ-zmL" secondAttribute="centerX" id="I4l-Qi-K1Z"/>
                                                 <constraint firstItem="CdT-f8-X26" firstAttribute="centerY" secondItem="650-cQ-zmL" secondAttribute="centerY" multiplier="2:3" id="RJ4-bw-iJb"/>
@@ -492,8 +493,11 @@
                                                 <constraint firstAttribute="width" secondItem="650-cQ-zmL" secondAttribute="height" multiplier="1:1" id="uBb-ZH-NLY"/>
                                                 <constraint firstItem="cBa-Wj-2Et" firstAttribute="centerY" secondItem="650-cQ-zmL" secondAttribute="centerY" multiplier="3:2" id="wbD-rp-LSa"/>
                                             </constraints>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="XKb-SK-hWj" appends="YES" id="a0W-QJ-Hy2"/>
+                                            </connections>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JS-u2-Fpf">
+                                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JS-u2-Fpf">
                                             <rect key="frame" x="94" y="0.0" width="94" height="94"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIFI传书" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo7-qa-0cJ">
@@ -510,6 +514,7 @@
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="eo7-qa-0cJ" firstAttribute="centerY" secondItem="8JS-u2-Fpf" secondAttribute="centerY" multiplier="3:2" id="EVV-rc-QdI"/>
                                                 <constraint firstItem="SZb-8e-iIU" firstAttribute="centerY" secondItem="8JS-u2-Fpf" secondAttribute="centerY" multiplier="2:3" id="FaY-uI-VB8"/>
@@ -518,6 +523,9 @@
                                                 <constraint firstItem="SZb-8e-iIU" firstAttribute="width" secondItem="8JS-u2-Fpf" secondAttribute="width" multiplier="34:94" id="Zdy-7X-FqE"/>
                                                 <constraint firstItem="SZb-8e-iIU" firstAttribute="centerX" secondItem="8JS-u2-Fpf" secondAttribute="centerX" id="h7M-OR-adr"/>
                                             </constraints>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="2fL-ye-4A7" appends="YES" id="Arx-K8-oDd"/>
+                                            </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0K-ov-63b">
                                             <rect key="frame" x="188" y="0.0" width="94" height="94"/>
@@ -815,10 +823,71 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="FZu-Tz-aSC" kind="show" id="r3C-1x-FKd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bH0-Qd-rtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XKb-SK-hWj">
+                    <connections>
+                        <action selector="functionViewTap:" destination="EhL-jU-ePo" id="Gzs-yj-lxG"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2fL-ye-4A7">
+                    <connections>
+                        <action selector="functionViewTap:" destination="EhL-jU-ePo" id="pD5-eD-htU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-650.39999999999998" y="1705.9970014992505"/>
+            <point key="canvasLocation" x="-490" y="2419"/>
+        </scene>
+        <!--我的文档-->
+        <scene sceneID="0g0-u9-M4X">
+            <objects>
+                <tableViewController storyboardIdentifier="PDFReaderViewController" id="FZu-Tz-aSC" customClass="LZYPDFReaderViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hz9-hL-ZMn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PDFBookListCell" id="B3k-0M-vgv">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B3k-0M-vgv" id="UrI-Lp-SWG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5c-h4-1yV">
+                                            <rect key="frame" x="0.0" y="44" width="375" height="0.0"/>
+                                            <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" id="RJ0-BP-fqR"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Z5c-h4-1yV" secondAttribute="trailing" id="fyj-jU-T01"/>
+                                        <constraint firstItem="Z5c-h4-1yV" firstAttribute="leading" secondItem="UrI-Lp-SWG" secondAttribute="leading" id="jPy-9W-pcr"/>
+                                        <constraint firstAttribute="bottom" secondItem="Z5c-h4-1yV" secondAttribute="bottom" id="tlZ-Xb-2m1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FZu-Tz-aSC" id="X9Q-Ea-7rO"/>
+                            <outlet property="delegate" destination="FZu-Tz-aSC" id="kJG-hC-eCc"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="我的文档" id="9bV-b7-yjo"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XkC-R5-Y61" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="503" y="2419"/>
         </scene>
         <!--我-->
         <scene sceneID="d4i-dW-3ck">
@@ -835,7 +904,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gW3-rH-bdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1375" y="1706"/>
+            <point key="canvasLocation" x="-1673" y="2420"/>
         </scene>
         <!--练习-->
         <scene sceneID="N0j-vS-zl5">

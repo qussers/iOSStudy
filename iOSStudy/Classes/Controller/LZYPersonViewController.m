@@ -11,6 +11,8 @@
 #import "LZYPersonBackgroundView.h"
 #import "UIView+Xib.h"
 
+#import "LZYPDFReaderViewController.h"
+#import "AddFileViewController.h"
 
 #define LZYPersonViewHeadHeight 150 * LZYSCREEN_WIDTH / 375.0
 
@@ -42,12 +44,14 @@
 {
     [super viewDidAppear:animated];
     self.hidesBottomBarWhenPushed = YES;
+    [self makeNavAlphaChange:0];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     self.hidesBottomBarWhenPushed = NO;
+    [self makeNavAlphaChange:1];
 }
 
 - (void)makeBackgroundAttribute
@@ -141,6 +145,34 @@
     
     return 0;
 }
+
+
+- (IBAction)functionViewTap:(id)sender {
+    
+    UITapGestureRecognizer *tap = (UITapGestureRecognizer *)sender;
+    NSInteger tag = [tap.view tag];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    switch (tag) {
+        //PDF阅读界面
+        case 1:
+        {
+            LZYPDFReaderViewController *v = [storyboard instantiateViewControllerWithIdentifier:@"PDFReaderViewController"];
+            [self.navigationController pushViewController:v animated:YES];
+        }
+            break;
+        case 2:
+        {
+            //WIFIUpload
+            AddFileViewController *v = [[AddFileViewController alloc] init];
+            [self.navigationController pushViewController:v animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 
 @end
