@@ -69,11 +69,23 @@ NSInteger defaultPageNumber = 3;
             UIView *lastView = self.cardsViewStore[i-1];
             v.frame = CGRectMake(lastView.frame.origin.x + cardGap, lastView.frame.origin.y + cardGap, lastView.frame.size.width - 2 * cardGap, lastView.frame.size.height);
         }
-        if (self.dataSource) {
-            UIView *subView = [self.dataSource cardPushView:self index:i];
-            if (subView) {
+        if (self.dataSource && v.subviews.count == 1) {
+            UIView *subView = [v.subviews firstObject];
+            subView.frame = v.bounds;
+                switch (i) {
+                    case 0:
+                        subView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+                        break;
+                    case 1:
+                        subView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
+                        break;
+                    case 2:
+                        subView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
+                        break;
+                    default:
+                        break;
+                }
                 [v addSubview:subView];
-            }
         }
         
     }
@@ -113,14 +125,16 @@ NSInteger defaultPageNumber = 3;
          newView.frame = CGRectMake(firstCardViewGap, firstCardViewGap, self.cardViewFrame.size.width - 2 * firstCardViewGap, self.cardViewFrame.size.height - firstCardViewGap * 4);
         [self addSubview:newView];
     }
-    newView.backgroundColor = [UIColor colorWithRed:(arc4random() % 255 / 255.0) green:(arc4random() % 255 / 255.0) blue:(arc4random() % 255 / 255.0) alpha:1];
     newView.layer.masksToBounds = YES;
     newView.layer.cornerRadius = 4;
     [self addGestureWithView:newView];
     [self.cardsViewStore addObject:newView];
-    if (self.dataSource && CGRectEqualToRect(self.cardViewFrame, self.frame)) {
+    if (self.dataSource && CGRectEqualToRect(self.cardViewFrame, self.frame) && newView.subviews.count == 0) {
         UIView *subView = [self.dataSource cardPushView:self index:index];
+#warning !!!
+        subView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
         if (subView) {
+            subView.frame = newView.bounds;
             [newView addSubview:subView];
         }
     }
@@ -190,7 +204,15 @@ NSInteger defaultPageNumber = 3;
             if (i > 0) {
                 UIView *v = self.cardsViewStore[i];
                 v.frame = CGRectMake(v.frame.origin.x - cardGap, v.frame.origin.y - cardGap, v.frame.size.width + cardGap * 2, v.frame.size.height);
+                if (i == 1) {
+                    [v.subviews firstObject].backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+                }
+                else if(i == 2){
+                    [v.subviews firstObject].backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
+                }
+                
             }
+            
         }
     } completion:^(BOOL finished) {
         [fv removeFromSuperview];

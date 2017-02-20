@@ -7,7 +7,8 @@
 //
 
 #import "LZYTestEveryDayViewController.h"
-
+#import "UIView+Xib.h"
+#import "LZYCardPageView.h"
 @interface LZYTestEveryDayViewController ()<LZYCardPushViewDataSource>
 
 @end
@@ -18,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.grectm
     
-
+    [self.view bringSubviewToFront:self.cardView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,9 +50,8 @@
 
 - (UIView *)cardPushView:(LZYCardPushView *)cardPushView index:(NSInteger)pageIndex
 {
-    UILabel *label = [[UILabel alloc] initWithFrame:cardPushView.bounds];
-    label.text = [NSString stringWithFormat:@"%ld",pageIndex];
-    label.backgroundColor = [UIColor whiteColor];
-    return label;
+    LZYCardPageView *cardView = (LZYCardPageView *)[UIView loadViewWithXibName:@"LZYCardPageView"];
+    
+    return cardView;
 }
 @end

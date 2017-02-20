@@ -121,6 +121,8 @@
 		0FE3091D1E5AEDBA009D75F7 /* LZYMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3091C1E5AEDBA009D75F7 /* LZYMessageViewController.m */; };
 		0FE309201E5AFD06009D75F7 /* SYWaterAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3091F1E5AFD06009D75F7 /* SYWaterAnimationView.m */; };
 		0FE309231E5B0023009D75F7 /* LZYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE309221E5B0023009D75F7 /* LZYTabBarViewController.m */; };
+		0FE309251E5B082D009D75F7 /* LZYCardPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FE309241E5B082D009D75F7 /* LZYCardPageView.xib */; };
+		0FE309281E5B091F009D75F7 /* LZYCardPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE309271E5B091F009D75F7 /* LZYCardPageView.m */; };
 		9C48EDF7827493B8EFEF7141 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ED5CFD32609B8013D7FAB1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -335,6 +337,9 @@
 		0FE3091F1E5AFD06009D75F7 /* SYWaterAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYWaterAnimationView.m; sourceTree = "<group>"; };
 		0FE309211E5B0023009D75F7 /* LZYTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYTabBarViewController.h; sourceTree = "<group>"; };
 		0FE309221E5B0023009D75F7 /* LZYTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYTabBarViewController.m; sourceTree = "<group>"; };
+		0FE309241E5B082D009D75F7 /* LZYCardPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LZYCardPageView.xib; sourceTree = "<group>"; };
+		0FE309261E5B091F009D75F7 /* LZYCardPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYCardPageView.h; sourceTree = "<group>"; };
+		0FE309271E5B091F009D75F7 /* LZYCardPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYCardPageView.m; sourceTree = "<group>"; };
 		14ED5CFD32609B8013D7FAB1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		206E2992AD1A09C5236FEFDD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DDA48E2C173C7689C7C8506B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -641,6 +646,9 @@
 				0F05171B1E5891F9000EBF72 /* LZYPersonBackgroundView.xib */,
 				0F05171D1E589368000EBF72 /* LZYPersonBackgroundView.h */,
 				0F05171E1E589368000EBF72 /* LZYPersonBackgroundView.m */,
+				0FE309241E5B082D009D75F7 /* LZYCardPageView.xib */,
+				0FE309261E5B091F009D75F7 /* LZYCardPageView.h */,
+				0FE309271E5B091F009D75F7 /* LZYCardPageView.m */,
 			);
 			path = MyFunctionViews;
 			sourceTree = "<group>";
@@ -1015,6 +1023,7 @@
 				0F8060821E5A94A90027DA85 /* AppIcon-076.png in Resources */,
 				0F8060CE1E5AC9570027DA85 /* wifi_info_bg.png in Resources */,
 				0F8060991E5A94A90027DA85 /* Reader-Print.png in Resources */,
+				0FE309251E5B082D009D75F7 /* LZYCardPageView.xib in Resources */,
 				0F80608F1E5A94A90027DA85 /* Reader-Email@3x.png in Resources */,
 				0F80608E1E5A94A90027DA85 /* Reader-Email@2x.png in Resources */,
 				0F8060981E5A94A90027DA85 /* Reader-Mark-Y@3x.png in Resources */,
@@ -1155,6 +1164,7 @@
 				0F8060AF1E5A94A90027DA85 /* ReaderViewController.m in Sources */,
 				0F05173D1E5896A8000EBF72 /* MASViewConstraint.m in Sources */,
 				0F8060A31E5A94A90027DA85 /* ReaderContentView.m in Sources */,
+				0FE309281E5B091F009D75F7 /* LZYCardPageView.m in Sources */,
 				0F8060A41E5A94A90027DA85 /* ReaderDocument.m in Sources */,
 				0F76A5D91E55AF340070EB3D /* LZYCollectionViewFlowLayout.m in Sources */,
 				0F76A5B41E5531AA0070EB3D /* LZYBaseViewController.m in Sources */,

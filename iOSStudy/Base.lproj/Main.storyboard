@@ -339,27 +339,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-fD-MLY">
-                                <rect key="frame" x="59" y="508" width="70" height="70"/>
-                                <color key="backgroundColor" red="0.10467930540000001" green="0.81552555859999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="49" y="488" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vuE-fD-MLY" secondAttribute="height" multiplier="1:1" id="pM8-eR-VaQ"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="descPointStar"/>
+                                <state key="normal" backgroundImage="彩色正确"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MuY-XU-wtq" userLabel="TopView" customClass="LZYCardPushView">
                                 <rect key="frame" x="16" y="74" width="343" height="381"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日练习已完成！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9j-aI-rWo">
+                                        <rect key="frame" x="102.5" y="180" width="139" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.10467930540000001" green="0.81552555859999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="C9j-aI-rWo" firstAttribute="centerX" secondItem="MuY-XU-wtq" secondAttribute="centerX" id="Hcn-Dl-awe"/>
+                                    <constraint firstItem="C9j-aI-rWo" firstAttribute="centerY" secondItem="MuY-XU-wtq" secondAttribute="centerY" id="yWc-he-L1Z"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="bYA-10-PQb" id="jd0-NE-UYa"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbN-hS-seB">
-                                <rect key="frame" x="246.5" y="508" width="70" height="70"/>
-                                <color key="backgroundColor" red="0.10467930540000001" green="0.81552555859999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="236.5" y="488" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cbN-hS-seB" secondAttribute="height" multiplier="1:1" id="qR9-wg-lfV"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="descPointStar"/>
+                                <state key="normal" backgroundImage="彩色提醒"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -373,7 +383,7 @@
                             <constraint firstItem="oUh-Zq-lYm" firstAttribute="top" secondItem="vuE-fD-MLY" secondAttribute="bottom" constant="40" id="YDl-gf-LrT"/>
                             <constraint firstItem="cbN-hS-seB" firstAttribute="width" secondItem="vuE-fD-MLY" secondAttribute="width" id="anz-16-C3I"/>
                             <constraint firstItem="MuY-XU-wtq" firstAttribute="top" secondItem="UGW-Ur-Uzy" secondAttribute="bottom" constant="10" id="jpI-yS-Eqj"/>
-                            <constraint firstItem="vuE-fD-MLY" firstAttribute="width" secondItem="ODY-KG-Mq2" secondAttribute="width" multiplier="70:375" id="qzc-HG-s3Z"/>
+                            <constraint firstItem="vuE-fD-MLY" firstAttribute="width" secondItem="ODY-KG-Mq2" secondAttribute="width" multiplier="90:375" id="qzc-HG-s3Z"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="每日练习" id="IKZ-Zo-4ge"/>
@@ -383,7 +393,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irw-6C-2C4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-767" y="309"/>
+            <point key="canvasLocation" x="-767.20000000000005" y="308.9955022488756"/>
         </scene>
         <!--个人中心-->
         <scene sceneID="70H-hY-MXy">
@@ -964,5 +974,7 @@
     <resources>
         <image name="descPointStar" width="31" height="28"/>
         <image name="descPointStarSelected" width="26" height="23"/>
+        <image name="彩色提醒" width="128" height="128"/>
+        <image name="彩色正确" width="128" height="128"/>
     </resources>
 </document>
