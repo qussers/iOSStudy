@@ -22,21 +22,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据加载中..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVC-Mj-0TV">
-                    <rect key="frame" x="134" y="397.5" width="106.5" height="21.5"/>
+                    <rect key="frame" x="134" y="445.5" width="106.5" height="21.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="lVC-Mj-0TV" firstAttribute="top" secondItem="Ech-Qd-sGL" secondAttribute="bottom" constant="64" id="DCF-SK-idr"/>
+                <constraint firstAttribute="bottom" secondItem="lVC-Mj-0TV" secondAttribute="bottom" constant="200" id="2zk-it-guw"/>
                 <constraint firstItem="Ech-Qd-sGL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Nuv-Eu-4ts"/>
-                <constraint firstItem="lVC-Mj-0TV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hdM-EO-NaT"/>
+                <constraint firstItem="lVC-Mj-0TV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XlS-g7-4e2"/>
                 <constraint firstItem="Ech-Qd-sGL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iXk-sx-EZw"/>
             </constraints>
             <connections>
-                <outlet property="centerY" destination="DCF-SK-idr" id="B5W-Ba-dUb"/>
                 <outlet property="contentLabel" destination="lVC-Mj-0TV" id="1ns-4X-AQK"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="121.5"/>

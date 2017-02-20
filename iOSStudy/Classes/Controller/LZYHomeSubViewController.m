@@ -31,7 +31,7 @@
 
 - (void)makeSubViewsAttribute
 {
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.contentScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.contentScrollView.contentSize = CGSizeMake(LZYSCREEN_WIDTH * 2, LZYSCREEN_HEIGHT - 64);
     self.contentScrollView.showsVerticalScrollIndicator = NO;
     self.contentScrollView.showsHorizontalScrollIndicator = NO;
@@ -43,6 +43,7 @@
     UIView *qView = self.questionViewController.view;
     kView.frame = CGRectMake(0, 0, LZYSCREEN_WIDTH, LZYSCREEN_HEIGHT - 64);
     qView.frame = CGRectMake(LZYSCREEN_WIDTH, 0, LZYSCREEN_WIDTH, LZYSCREEN_HEIGHT - 64);
+    [self.view addSubview:self.contentScrollView];
     [self.contentScrollView addSubview:kView];
     [self.contentScrollView addSubview:qView];
 }
@@ -52,10 +53,10 @@
     
     switch (self.segment.selectedSegmentIndex) {
         case 0:
-            [self.contentScrollView setContentOffset:CGPointMake(0, 0)];
+            [self.contentScrollView setContentOffset:CGPointMake(0, self.contentScrollView.contentOffset.y)];
             break;
         case 1:
-            [self.contentScrollView setContentOffset:CGPointMake(LZYSCREEN_WIDTH, 0)];
+            [self.contentScrollView setContentOffset:CGPointMake(LZYSCREEN_WIDTH, self.contentScrollView.contentOffset.y)];
             break;
         default:
             break;

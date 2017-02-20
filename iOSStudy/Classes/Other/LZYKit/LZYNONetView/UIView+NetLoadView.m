@@ -15,6 +15,8 @@ static NSString *loadViewKey = @"loadViewKey";
 
 @implementation UIView (newLoadView)
 
+
+
 - (void)beginLoading
 {
     for (UIView *aView in self.subviews) {
@@ -22,14 +24,12 @@ static NSString *loadViewKey = @"loadViewKey";
             return;
         }
     }
-    
     if (!self.loadView) {
         self.loadView = (LZYNetLoadView *)[UIView loadViewWithXibName:@"LZYNetLoadView"];
-        self.loadView.frame = self.bounds;
+        self.loadView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         if([self isKindOfClass:[UITableView class]] ){
             UITableView *tableView = (UITableView *)self;
             self.loadView.tableViewCellSeparatorStyle = tableView.separatorStyle;
-            [self.loadView changeY:0];
             [tableView setScrollEnabled:NO];
             [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
             

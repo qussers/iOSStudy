@@ -42,12 +42,12 @@
                                           tableName:tableName
                                             success:^(NSArray *result) {
             if (result) {
-                [self.dataSource removeAllObjects];
-                [self.dataSource addObjectsFromArray:result];
-                [self.tableView reloadData];
                 if (result.count == 0) {
                     [self.tableView loadNone];
                 }else{
+                    [self.dataSource removeAllObjects];
+                    [self.dataSource addObjectsFromArray:result];
+                    [self.tableView reloadData];
                     [self.tableView endLoading];
                 }
             }

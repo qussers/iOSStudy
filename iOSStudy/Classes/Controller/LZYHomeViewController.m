@@ -53,7 +53,8 @@
 
 - (void)setupCarouselView
 {
-    self.carouselView.type = iCarouselTypeCoverFlow;
+    self.carouselView.type = iCarouselTypeCylinder;
+
 }
 
 - (void)requestData
@@ -83,7 +84,7 @@
     if (!view)
     {
         view = [LZYHomeSegView loadViewWithXibName:@"LZYHomeSegView"];
-        view.bounds = CGRectMake(0, 0, LZYSCREEN_WIDTH - 100, self.carouselView.frame.size.height);
+        view.bounds = CGRectMake(0, 0, LZYSCREEN_WIDTH - 150 * (LZYSCREEN_WIDTH / 375.0), self.carouselView.frame.size.height);
     }
     if ([view isKindOfClass:[LZYHomeSegView class]]) {
         LZYHomeSegView *myView = (LZYHomeSegView *)view;
@@ -112,6 +113,10 @@
                 }
                 return value;
             }
+            case iCarouselOptionSpacing:
+                {
+                    return value * 1.2;
+                }
             default:
             {
                 return value;
@@ -126,6 +131,13 @@
     LZYSubjectTitleModel *model = self.dataSource[index];
     vc.subjectTag = model.subTitle;
     [self.navigationController pushViewController:vc animated:YES];
+    
+//    
+//    UIStoryboard *stotyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    LZYSecondSubjectTableViewController *vc = [stotyboard instantiateViewControllerWithIdentifier:@"secondSubject"];
+//    LZYSubjectTitleModel *model = self.dataSource[index];
+//    vc.subjectTag = model.subTitle;
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - lazy

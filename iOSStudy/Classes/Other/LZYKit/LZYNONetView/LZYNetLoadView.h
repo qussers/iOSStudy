@@ -21,10 +21,7 @@ typedef NS_ENUM(NSInteger, networkLoadType) {
 @property (nonatomic, assign) networkLoadType loadType;
 
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerY;
-
 @property (nonatomic, assign) UITableViewCellSeparatorStyle tableViewCellSeparatorStyle;
 
-//更改位置约束
-- (void)changeY:(CGFloat)distance;
+
 @end

@@ -10,6 +10,7 @@
 
 @implementation LZYNetLoadView
 
+
 - (void)setLoadType:(networkLoadType)loadType
 {
     _loadType = loadType;
@@ -29,9 +30,5 @@
     }
 }
 
-- (void)changeY:(CGFloat)distance
-{
-    self.centerY.constant = distance;
-    [self layoutIfNeeded];
-}
+
 @end
