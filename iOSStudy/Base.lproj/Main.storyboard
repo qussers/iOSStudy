@@ -283,7 +283,7 @@
         <!--Root View Controller-->
         <scene sceneID="IQX-mf-cIv">
             <objects>
-                <tableViewController id="xqg-Mh-ApH" sceneMemberID="viewController">
+                <tableViewController id="xqg-Mh-ApH" customClass="LZYMessageViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tnJ-gK-mgx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,7 +340,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-fD-MLY">
                                 <rect key="frame" x="59" y="508" width="70" height="70"/>
-                                <color key="backgroundColor" red="0.26065820379999999" green="0.72771687279999997" blue="0.90011703430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.10467930540000001" green="0.81552555859999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vuE-fD-MLY" secondAttribute="height" multiplier="1:1" id="pM8-eR-VaQ"/>
                                 </constraints>
@@ -348,14 +348,14 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MuY-XU-wtq" userLabel="TopView" customClass="LZYCardPushView">
                                 <rect key="frame" x="16" y="74" width="343" height="381"/>
-                                <color key="backgroundColor" red="0.26065820379999999" green="0.72771687279999997" blue="0.90011703430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.10467930540000001" green="0.81552555859999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="bYA-10-PQb" id="jd0-NE-UYa"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbN-hS-seB">
                                 <rect key="frame" x="246.5" y="508" width="70" height="70"/>
-                                <color key="backgroundColor" red="0.26065820379999999" green="0.72771687279999997" blue="0.90011703430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.10467930540000001" green="0.81552555859999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cbN-hS-seB" secondAttribute="height" multiplier="1:1" id="qR9-wg-lfV"/>
                                 </constraints>
@@ -940,10 +940,10 @@
             </objects>
             <point key="canvasLocation" x="-1497" y="-377"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="6u9-5Q-kTw">
             <objects>
-                <tabBarController id="yUo-ze-NQF" sceneMemberID="viewController">
+                <tabBarController id="yUo-ze-NQF" customClass="LZYTabBarViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wzz-d5-YW9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

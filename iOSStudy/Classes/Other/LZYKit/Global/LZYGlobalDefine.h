@@ -32,4 +32,7 @@
 
 #define LZYNETWORKNONE @"当前无网络，请检查网络配置"
 
+
+#define MainColor @"24d7dc"
+
 #endif /* LZYGlobalDefine_h */

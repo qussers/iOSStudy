@@ -118,6 +118,9 @@
 		0F8060CD1E5AC9570027DA85 /* wifi_info_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8060CB1E5AC9570027DA85 /* wifi_info_bg@2x.png */; };
 		0F8060CE1E5AC9570027DA85 /* wifi_info_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8060CC1E5AC9570027DA85 /* wifi_info_bg.png */; };
 		0F8061111E5AD0210027DA85 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 0F8061101E5AD0210027DA85 /* Web */; };
+		0FE3091D1E5AEDBA009D75F7 /* LZYMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3091C1E5AEDBA009D75F7 /* LZYMessageViewController.m */; };
+		0FE309201E5AFD06009D75F7 /* SYWaterAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3091F1E5AFD06009D75F7 /* SYWaterAnimationView.m */; };
+		0FE309231E5B0023009D75F7 /* LZYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE309221E5B0023009D75F7 /* LZYTabBarViewController.m */; };
 		9C48EDF7827493B8EFEF7141 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ED5CFD32609B8013D7FAB1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -326,6 +329,12 @@
 		0F8060CB1E5AC9570027DA85 /* wifi_info_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi_info_bg@2x.png"; sourceTree = "<group>"; };
 		0F8060CC1E5AC9570027DA85 /* wifi_info_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi_info_bg.png; sourceTree = "<group>"; };
 		0F8061101E5AD0210027DA85 /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
+		0FE3091B1E5AEDBA009D75F7 /* LZYMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYMessageViewController.h; sourceTree = "<group>"; };
+		0FE3091C1E5AEDBA009D75F7 /* LZYMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYMessageViewController.m; sourceTree = "<group>"; };
+		0FE3091E1E5AFD06009D75F7 /* SYWaterAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYWaterAnimationView.h; sourceTree = "<group>"; };
+		0FE3091F1E5AFD06009D75F7 /* SYWaterAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYWaterAnimationView.m; sourceTree = "<group>"; };
+		0FE309211E5B0023009D75F7 /* LZYTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYTabBarViewController.h; sourceTree = "<group>"; };
+		0FE309221E5B0023009D75F7 /* LZYTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYTabBarViewController.m; sourceTree = "<group>"; };
 		14ED5CFD32609B8013D7FAB1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		206E2992AD1A09C5236FEFDD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DDA48E2C173C7689C7C8506B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -539,6 +548,8 @@
 				0F8060381E59EDD50027DA85 /* LZYTestEveryDayViewController.m */,
 				0F8060B31E5A953A0027DA85 /* LZYPDFReaderViewController.h */,
 				0F8060B41E5A953A0027DA85 /* LZYPDFReaderViewController.m */,
+				0FE3091B1E5AEDBA009D75F7 /* LZYMessageViewController.h */,
+				0FE3091C1E5AEDBA009D75F7 /* LZYMessageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -568,6 +579,7 @@
 		0F76A5A91E5447AE0070EB3D /* LZYKit */ = {
 			isa = PBXGroup;
 			children = (
+				0FE309171E5AE4B1009D75F7 /* LZYWaveView */,
 				0F0517071E56DFED000EBF72 /* LZYNONetView */,
 				0F0517061E56DF95000EBF72 /* LZYUnloadView */,
 				0F0517021E56D86B000EBF72 /* LZYNSString */,
@@ -640,6 +652,8 @@
 				0F76A5B31E5531AA0070EB3D /* LZYBaseViewController.m */,
 				0F76A5E71E55C07D0070EB3D /* LZYBaseTableViewController.h */,
 				0F76A5E81E55C07D0070EB3D /* LZYBaseTableViewController.m */,
+				0FE309211E5B0023009D75F7 /* LZYTabBarViewController.h */,
+				0FE309221E5B0023009D75F7 /* LZYTabBarViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -831,6 +845,15 @@
 				0F8060C01E5AC92C0027DA85 /* XXPath.m */,
 			);
 			path = WIFIUpload;
+			sourceTree = "<group>";
+		};
+		0FE309171E5AE4B1009D75F7 /* LZYWaveView */ = {
+			isa = PBXGroup;
+			children = (
+				0FE3091E1E5AFD06009D75F7 /* SYWaterAnimationView.h */,
+				0FE3091F1E5AFD06009D75F7 /* SYWaterAnimationView.m */,
+			);
+			path = LZYWaveView;
 			sourceTree = "<group>";
 		};
 		15DBD44C47AEACBC73FDBF24 /* Frameworks */ = {
@@ -1084,11 +1107,13 @@
 				0F8060391E59EDD50027DA85 /* LZYTestEveryDayViewController.m in Sources */,
 				0F8060A21E5A94A90027DA85 /* ReaderContentTile.m in Sources */,
 				0F05170C1E56E372000EBF72 /* LZYNetLoadView.m in Sources */,
+				0FE309231E5B0023009D75F7 /* LZYTabBarViewController.m in Sources */,
 				0F76A5771E5445E40070EB3D /* AppDelegate.m in Sources */,
 				0F8060A91E5A94A90027DA85 /* ReaderThumbFetch.m in Sources */,
 				0F05173E1E5896A8000EBF72 /* NSArray+MASAdditions.m in Sources */,
 				0F76A5B01E544EB50070EB3D /* LZYSegCollectionViewController.m in Sources */,
 				0F76A5CC1E55A2580070EB3D /* UIView+Xib.m in Sources */,
+				0FE3091D1E5AEDBA009D75F7 /* LZYMessageViewController.m in Sources */,
 				0F76A5DD1E55AF700070EB3D /* LZYDelegateRegister.m in Sources */,
 				0F8060A11E5A94A90027DA85 /* ReaderContentPage.m in Sources */,
 				0F0517401E5896A8000EBF72 /* View+MASAdditions.m in Sources */,
@@ -1104,6 +1129,7 @@
 				0F8060B11E5A94A90027DA85 /* ThumbsViewController.m in Sources */,
 				0F0516A61E568EA2000EBF72 /* LZYBmobQueryTypeModel.m in Sources */,
 				0F80609F1E5A94A90027DA85 /* CGPDFDocument.m in Sources */,
+				0FE309201E5AFD06009D75F7 /* SYWaterAnimationView.m in Sources */,
 				0F8060A81E5A94A90027DA85 /* ReaderThumbCache.m in Sources */,
 				0F0517051E56D874000EBF72 /* NSString+LZYAdd.m in Sources */,
 				0F05173C1E5896A8000EBF72 /* MASViewAttribute.m in Sources */,
