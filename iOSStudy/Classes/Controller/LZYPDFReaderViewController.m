@@ -9,6 +9,7 @@
 #import "LZYPDFReaderViewController.h"
 #import "ReaderViewController.h"
 #import "XXPath.h"
+#import "UIView+NetLoadView.h"
 @interface LZYPDFReaderViewController ()<ReaderViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
@@ -33,9 +34,9 @@
 - (void)loadSourceData
 {
 
+    [self.view beginLoading];
     NSFileManager *manager = [NSFileManager defaultManager];
     NSString *path = [XXPath docPath];
-    
     NSMutableArray *musicFiles = [NSMutableArray array];
     NSError *error = nil;
     NSArray *names = [manager contentsOfDirectoryAtPath:path error:&error];
@@ -49,6 +50,16 @@
                 [musicFiles addObject:filepath];
             }
         }
+    }else{
+    
+        [self.view loadError];
+    }
+    
+    if (musicFiles.count == 0) {
+        [self.view loadNone];
+    }
+    else{
+        [self.view endLoading];
     }
     self.dataSource = [musicFiles mutableCopy];
     [self.tableView reloadData];
@@ -86,7 +97,6 @@
 - (void)goToReaderWithSourcesName:(NSString *)filePath
 {
     NSString *phrase = nil; // Document password (for unlocking most encrypted PDF files)
-    //NSString *filePath = [[NSBundle mainBundle] pathForResource:sourcesName ofType:nil];
     assert(filePath != nil); // Path to first PDF file
     ReaderDocument *document = [ReaderDocument withDocumentFilePath:filePath password:phrase];
     

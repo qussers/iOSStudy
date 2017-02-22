@@ -35,8 +35,9 @@
     self.contentScrollView.contentSize = CGSizeMake(LZYSCREEN_WIDTH * 2, LZYSCREEN_HEIGHT - 64);
     self.contentScrollView.showsVerticalScrollIndicator = NO;
     self.contentScrollView.showsHorizontalScrollIndicator = NO;
-    self.contentScrollView.bounces = NO;
+    self.contentScrollView.bounces = YES;
     self.contentScrollView.pagingEnabled = YES;
+    self.contentScrollView.delegate = self;
     [self addChildViewController:self.knowledgeViewController];
     [self addChildViewController:self.questionViewController];
     UIView *kView = self.knowledgeViewController.view;
@@ -73,6 +74,13 @@
         self.segment.selectedSegmentIndex = 0;
     }
     
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.x < -LZYSCREEN_WIDTH * 0.2) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - lazy

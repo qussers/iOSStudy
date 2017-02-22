@@ -33,4 +33,14 @@
                                     success:(void(^)(NSArray *result))success
                                     failure:(void(^)(id result))failure;
 
+//获取招聘信息详情
++ (void)requestInviteJobWithTableName:(NSString *)name
+                              success:(void(^)(NSArray *result))success
+                              failure:(void(^)(id result))failure;
+
+//获取面试信息详情
++ (void)requestInterviewWithTableName:(NSString *)name
+                              success:(void(^)(NSArray *result))success
+                              failure:(void(^)(id result))failure;
+
 @end

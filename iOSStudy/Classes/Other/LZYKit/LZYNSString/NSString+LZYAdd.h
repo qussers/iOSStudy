@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface NSString (LZYAdd)
+
 - (NSString *)stringByTrim;
+
+//根据文本计算所占区域
+- (CGSize)stringWithMaxSize:(CGSize)maxSize  fontSize:(CGFloat)fontSize;
 @end

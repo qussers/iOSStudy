@@ -30,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self makeBackgroundAttribute];
     [self makeNavTitleAttribute];
 }
@@ -52,14 +54,15 @@
     [super viewDidDisappear:animated];
     self.hidesBottomBarWhenPushed = NO;
     [self makeNavAlphaChange:1];
+    
 }
 
 - (void)makeBackgroundAttribute
 {
     _headBackView = (LZYPersonBackgroundView *)[UIView loadViewWithXibName:@"LZYPersonBackgroundView"];
-    _headBackView.frame = CGRectMake(0, -LZYPersonViewHeadHeight, LZYSCREEN_WIDTH, LZYPersonViewHeadHeight);
+    _headBackView.frame = CGRectMake(0, 0, LZYSCREEN_WIDTH, LZYPersonViewHeadHeight);
     [self.view addSubview:_headBackView];
-    [self.tableView setContentInset:UIEdgeInsetsMake(LZYPersonViewHeadHeight, 0, 0, 0)];
+    [self.tableView setContentInset:UIEdgeInsetsMake(LZYPersonViewHeadHeight + 64, 0, 0, 0)];
 }
 
 - (void)makeNavTitleAttribute

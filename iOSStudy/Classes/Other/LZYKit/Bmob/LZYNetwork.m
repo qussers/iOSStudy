@@ -11,11 +11,22 @@
 #import <BmobSDK/BmobQuery.h>
 #import <BmobSDK/BmobObject+Subclass.h>
 
+//所有科目标题表
 #import "LZYSubjectTitleModel.h"
+
+//具体科目表内容
 #import "LZYSecondSubjectModel.h"
+
+//招聘模型表
+#import "LZYInviteJobModel.h"
+
+//面试信息表
+#import "LZYInterviewModel.h"
 
 //查询条件模型
 #import "LZYBmobQueryTypeModel.h"
+
+//
 
 @implementation LZYNetwork
 
@@ -111,6 +122,7 @@
 
 }
 
+//根据科目，检索科目（知识点、问题）的内容列表
 + (void)requestSubjectContentWithSubjectTag:(NSString *)subjectTag
                                   tableName:(NSString *)tableName
                                     success:(void (^)(NSArray *))success
@@ -148,4 +160,69 @@
     }];
     
 }
+
+//获取招聘信息详情
++ (void)requestInviteJobWithTableName:(NSString *)name
+                              success:(void(^)(NSArray *result))success
+                              failure:(void(^)(id result))failure
+{
+    if (!name) {
+        name = LZYBMOBINVITEJOB;
+    }
+    [self requestDataWithBMOBTableName:name success:^(id result) {
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSMutableArray *mArr = @[].mutableCopy;
+            for (BmobObject *obj in result) {
+                LZYInviteJobModel *model = [[LZYInviteJobModel alloc] initFromBmobObject:obj];
+                model.cityName = [obj objectForKey:@"cityName"];
+                model.townName = [obj objectForKey:@"townName"];
+                model.jobTitle = [obj objectForKey:@"jobTitle"];
+                model.experience = [obj objectForKey:@"experience"];
+                model.companyName = [obj objectForKey:@"companyName"];
+                model.companyType = [obj objectForKey:@"companyType"];
+                model.inviteName = [obj objectForKey:@"inviteName"];
+                model.invitePosition = [obj objectForKey:@"invitePosition"];
+                model.salary = [obj objectForKey:@"salary"];
+                model.inviteUserId = [obj objectForKey:@"inviteUserId"];
+                [mArr addObject:model];
+            }
+            success(mArr);
+        }
+        
+    } failure:^(id result) {
+        failure(result);
+    }];
+}
+
+//获取面试信息详情
++ (void)requestInterviewWithTableName:(NSString *)name
+                              success:(void(^)(NSArray *result))success
+                              failure:(void(^)(id result))failure
+{
+    if (!name) {
+        name = LZYBMOBINTERVIEW;
+    }
+    [self requestDataWithBMOBTableName:name success:^(id result) {
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSMutableArray *mArr = @[].mutableCopy;
+            for (BmobObject *obj in result) {
+                LZYInterviewModel *model = [[LZYInterviewModel alloc] initFromBmobObject:obj];
+                model.companyName = [obj objectForKey:@"companyName"];
+                model.tagArr = [obj objectForKey:@"tags"];
+                model.interviewContent = [obj objectForKey:@"interviewContent"];
+                model.commentCount = [[obj objectForKey:@"commentCount"] integerValue];
+                model.jobTitle = [obj objectForKey:@"jobTitle"];
+                model.likes = [[obj objectForKey:@"likes"] integerValue];
+                model.interviewUserName = [obj objectForKey:@"interviewUserName"];
+                [mArr addObject:model];
+            }
+            success(mArr);
+        }
+        
+    } failure:^(id result) {
+        failure(result);
+    }];
+    
+}
+
 @end

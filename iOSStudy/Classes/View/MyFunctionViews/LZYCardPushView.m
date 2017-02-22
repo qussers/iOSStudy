@@ -35,6 +35,7 @@ NSInteger defaultPageNumber = 3;
     if (self = [super initWithFrame:frame]) {
         [self firstLoadView];
     }
+    [self layoutIfNeeded];
     return self;
 }
 
@@ -103,7 +104,7 @@ NSInteger defaultPageNumber = 3;
 
 - (void)reloadData
 {
-    for (UIView *v in self.subviews) {
+    for (UIView *v in self.cardsViewStore) {
         [v removeFromSuperview];
     }
     [self.cardsViewStore removeAllObjects];
