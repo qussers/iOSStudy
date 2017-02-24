@@ -24,8 +24,10 @@ typedef void(^JSWaveBlock)(CGFloat currentY);
 //实浪颜色
 @property (nonatomic, strong) UIColor *waveColor;
 
+//主体背景浪颜色
+@property (nonatomic, strong) UIColor *backgroundWaveColor;
 
-@property (nonatomic, copy) JSWaveBlock waveBlock;
+
 
 - (void)stopWaveAnimation;
 

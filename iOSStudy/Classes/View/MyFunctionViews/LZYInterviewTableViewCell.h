@@ -13,10 +13,6 @@
 
 @protocol LZYInterviewCellDelegate <NSObject>
 
-
-
-
-
 @end
 
 @interface LZYInterviewTableViewCell : UITableViewCell
@@ -43,6 +39,9 @@
 
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *interviewHeightConstraint;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolBarToInterviewConstraint;
 
 
 @property (nonatomic, copy) void(^loadMoreContentClick)(BOOL isLoadMore);

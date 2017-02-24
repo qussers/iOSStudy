@@ -11,6 +11,10 @@
 #import "LZYDynamicTitlesView.h"
 #import "LZYInviteJobViewController.h"
 #import "LZYInterviewViewController.h"
+
+//编辑页面
+#import "LZYEditInterviewViewController.h"
+
 #define LZYDynamicTitles @[@"面试",@"求助",@"招聘",@"吐槽"]
 @interface LZYDynamicViewController ()<LZYDynamicTitlesViewDelegate,UIScrollViewDelegate>
 
@@ -86,13 +90,12 @@ CGFloat dynamicHeight = 30;
     _contentScrollView.bounces = YES;
     _contentScrollView.pagingEnabled = YES;
     _contentScrollView.delegate = self;
-    
-    _contentScrollView.backgroundColor = [UIColor redColor];
     [self.view addSubview:_contentScrollView];
 }
 
 - (void)createSubControllers
 {
+    
     UIStoryboard *storyboard  = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //招聘
     _inviteJobViewController = [storyboard instantiateViewControllerWithIdentifier:@"inviteJobViewController"];
@@ -110,10 +113,18 @@ CGFloat dynamicHeight = 30;
 }
 
 #pragma mark - LZYDynamicTitlesViewDelegate
-
 - (void)dynamicTitleView:(LZYDynamicTitlesView *)dynamicTitleView didSelected:(NSInteger)index
 {
     NSLog(@"%ld",index);
+}
+
+
+- (IBAction)editButtonClick:(id)sender {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LZYEditInterviewViewController *v = [storyboard instantiateViewControllerWithIdentifier:@"editInterviewController"];
+    [self.navigationController pushViewController:v animated:YES];
+    
 }
 
 

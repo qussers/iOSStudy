@@ -26,15 +26,10 @@
 - (IBAction)loadMoreClick:(id)sender {
     
     if(self.loadMoreContentClick){
-        if ([self.interviewContentLabel.constraints containsObject:self.interviewHeightConstraint]) {
-            self.loadMoreContentClick(YES);
-        }else{
-            self.loadMoreContentClick(NO);
-        }
+        self.loadMoreContentClick(YES);
     }
     
 }
-
 
 
 + (CGFloat)labelHeightWithLabelContent:(NSString *)content
@@ -59,20 +54,16 @@
 + (void)cellHeightWithContent:(NSString *)content model:(LZYInterviewModel *)model
 {
     CGFloat labelHeight = [self labelHeightWithLabelContent:content];
-    
-    
     if (labelHeight > 50) {
-        model.cellHeight =  (57 + 24 + 32 + 22) * ((LZYSCREEN_WIDTH - 30) / 345.0) + (145 - (57 + 24 + 32 + 22)) + 50 + 10;
+        model.cellHeight =  (57 + 24 + 32 + 22) * ((LZYSCREEN_WIDTH - 30) / 345.0) + (150 - (57 + 24 + 32 + 22)) + 50 + 10;
         model.totalCellHeight = labelHeight + model.cellHeight - 50;
         model.isWordBreak = YES;
     }
     else{
-        model.cellHeight = (57 + 24 + 32) * ((LZYSCREEN_WIDTH - 30) / 345.0) + (145 - (57 + 24 + 32 + 22 ))+ labelHeight + 10;
+        model.cellHeight = (57 + 24 + 32) * ((LZYSCREEN_WIDTH - 30) / 345.0) + (150 - (57 + 24 + 32 + 22 ))+ labelHeight + 10;
         model.totalCellHeight = model.cellHeight;
         model.isWordBreak = NO;
     }
-    
-    
 }
 
 

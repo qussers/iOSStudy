@@ -34,6 +34,24 @@
 		0F05173E1E5896A8000EBF72 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0517311E5896A8000EBF72 /* NSArray+MASAdditions.m */; };
 		0F05173F1E5896A8000EBF72 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0517341E5896A8000EBF72 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		0F0517401E5896A8000EBF72 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0517361E5896A8000EBF72 /* View+MASAdditions.m */; };
+		0F62A8DC1E5DF472000DAE72 /* LZYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62A8DB1E5DF472000DAE72 /* LZYLoginViewController.m */; };
+		0F62A8E41E5E8910000DAE72 /* backgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F62A8E31E5E8910000DAE72 /* backgroundImage.jpg */; };
+		0F62A8E71E5EB4D4000DAE72 /* LZYUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62A8E61E5EB4D4000DAE72 /* LZYUserModel.m */; };
+		0F62A8EB1E5EBC7B000DAE72 /* UIImage+LZYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62A8EA1E5EBC7B000DAE72 /* UIImage+LZYAdd.m */; };
+		0F62A8EF1E5EC0E6000DAE72 /* UIImageView+LZYWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62A8EE1E5EC0E6000DAE72 /* UIImageView+LZYWebCache.m */; };
+		0F62A8F31E5EC576000DAE72 /* MBProgressHUD+LZYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62A8F21E5EC576000DAE72 /* MBProgressHUD+LZYAdd.m */; };
+		0F62A8F61E5ECF6B000DAE72 /* LZYSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62A8F51E5ECF6B000DAE72 /* LZYSettingTableViewController.m */; };
+		0F62A8F91E5EDF25000DAE72 /* LZYBmobSMSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62A8F81E5EDF25000DAE72 /* LZYBmobSMSModel.m */; };
+		0F62A8FC1E5EE16F000DAE72 /* LZYSMSTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62A8FB1E5EE16F000DAE72 /* LZYSMSTimerManager.m */; };
+		0F62A8FF1E5F0C91000DAE72 /* LZYRegisterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62A8FE1E5F0C91000DAE72 /* LZYRegisterTableViewController.m */; };
+		0F62A9021E5FBE7F000DAE72 /* LZYForgetPasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F62A9011E5FBE7F000DAE72 /* LZYForgetPasswordTableViewController.m */; };
+		0F6D746A1E5D8E72004B6B2C /* LZYHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6D74691E5D8E72004B6B2C /* LZYHelpViewController.m */; };
+		0F6D74731E5D97EE004B6B2C /* LZYEditInterviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6D74721E5D97EE004B6B2C /* LZYEditInterviewViewController.m */; };
+		0F6D74781E5DE210004B6B2C /* LZYBaseHelpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6D74771E5DE210004B6B2C /* LZYBaseHelpTableViewCell.m */; };
+		0F6D747B1E5DE237004B6B2C /* LZYOneImageHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6D747A1E5DE237004B6B2C /* LZYOneImageHelpCell.m */; };
+		0F6D747E1E5DE249004B6B2C /* LZYTwoImageHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6D747D1E5DE249004B6B2C /* LZYTwoImageHelpCell.m */; };
+		0F6D74811E5DE25C004B6B2C /* LZYFourImageHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6D74801E5DE25C004B6B2C /* LZYFourImageHelpCell.m */; };
+		0F6D74841E5DE26E004B6B2C /* LZYMoreImageHelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6D74831E5DE26E004B6B2C /* LZYMoreImageHelpCell.m */; };
 		0F76A5741E5445E40070EB3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F76A5731E5445E40070EB3D /* main.m */; };
 		0F76A5771E5445E40070EB3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F76A5761E5445E40070EB3D /* AppDelegate.m */; };
 		0F76A57D1E5445E40070EB3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F76A57B1E5445E40070EB3D /* Main.storyboard */; };
@@ -209,6 +227,41 @@
 		0F0517351E5896A8000EBF72 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
 		0F0517361E5896A8000EBF72 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
 		0F0517371E5896A8000EBF72 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		0F62A8DA1E5DF472000DAE72 /* LZYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYLoginViewController.h; sourceTree = "<group>"; };
+		0F62A8DB1E5DF472000DAE72 /* LZYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYLoginViewController.m; sourceTree = "<group>"; };
+		0F62A8E31E5E8910000DAE72 /* backgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundImage.jpg; sourceTree = "<group>"; };
+		0F62A8E51E5EB4D4000DAE72 /* LZYUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYUserModel.h; sourceTree = "<group>"; };
+		0F62A8E61E5EB4D4000DAE72 /* LZYUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYUserModel.m; sourceTree = "<group>"; };
+		0F62A8E91E5EBC7B000DAE72 /* UIImage+LZYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LZYAdd.h"; sourceTree = "<group>"; };
+		0F62A8EA1E5EBC7B000DAE72 /* UIImage+LZYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LZYAdd.m"; sourceTree = "<group>"; };
+		0F62A8ED1E5EC0E6000DAE72 /* UIImageView+LZYWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LZYWebCache.h"; sourceTree = "<group>"; };
+		0F62A8EE1E5EC0E6000DAE72 /* UIImageView+LZYWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LZYWebCache.m"; sourceTree = "<group>"; };
+		0F62A8F11E5EC576000DAE72 /* MBProgressHUD+LZYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LZYAdd.h"; sourceTree = "<group>"; };
+		0F62A8F21E5EC576000DAE72 /* MBProgressHUD+LZYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+LZYAdd.m"; sourceTree = "<group>"; };
+		0F62A8F41E5ECF6B000DAE72 /* LZYSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYSettingTableViewController.h; sourceTree = "<group>"; };
+		0F62A8F51E5ECF6B000DAE72 /* LZYSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYSettingTableViewController.m; sourceTree = "<group>"; };
+		0F62A8F71E5EDF25000DAE72 /* LZYBmobSMSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYBmobSMSModel.h; sourceTree = "<group>"; };
+		0F62A8F81E5EDF25000DAE72 /* LZYBmobSMSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYBmobSMSModel.m; sourceTree = "<group>"; };
+		0F62A8FA1E5EE16F000DAE72 /* LZYSMSTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYSMSTimerManager.h; sourceTree = "<group>"; };
+		0F62A8FB1E5EE16F000DAE72 /* LZYSMSTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYSMSTimerManager.m; sourceTree = "<group>"; };
+		0F62A8FD1E5F0C91000DAE72 /* LZYRegisterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYRegisterTableViewController.h; sourceTree = "<group>"; };
+		0F62A8FE1E5F0C91000DAE72 /* LZYRegisterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYRegisterTableViewController.m; sourceTree = "<group>"; };
+		0F62A9001E5FBE7F000DAE72 /* LZYForgetPasswordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYForgetPasswordTableViewController.h; sourceTree = "<group>"; };
+		0F62A9011E5FBE7F000DAE72 /* LZYForgetPasswordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYForgetPasswordTableViewController.m; sourceTree = "<group>"; };
+		0F6D74681E5D8E72004B6B2C /* LZYHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYHelpViewController.h; sourceTree = "<group>"; };
+		0F6D74691E5D8E72004B6B2C /* LZYHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYHelpViewController.m; sourceTree = "<group>"; };
+		0F6D74711E5D97EE004B6B2C /* LZYEditInterviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYEditInterviewViewController.h; sourceTree = "<group>"; };
+		0F6D74721E5D97EE004B6B2C /* LZYEditInterviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYEditInterviewViewController.m; sourceTree = "<group>"; };
+		0F6D74761E5DE210004B6B2C /* LZYBaseHelpTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYBaseHelpTableViewCell.h; sourceTree = "<group>"; };
+		0F6D74771E5DE210004B6B2C /* LZYBaseHelpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYBaseHelpTableViewCell.m; sourceTree = "<group>"; };
+		0F6D74791E5DE237004B6B2C /* LZYOneImageHelpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYOneImageHelpCell.h; sourceTree = "<group>"; };
+		0F6D747A1E5DE237004B6B2C /* LZYOneImageHelpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYOneImageHelpCell.m; sourceTree = "<group>"; };
+		0F6D747C1E5DE249004B6B2C /* LZYTwoImageHelpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYTwoImageHelpCell.h; sourceTree = "<group>"; };
+		0F6D747D1E5DE249004B6B2C /* LZYTwoImageHelpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYTwoImageHelpCell.m; sourceTree = "<group>"; };
+		0F6D747F1E5DE25C004B6B2C /* LZYFourImageHelpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYFourImageHelpCell.h; sourceTree = "<group>"; };
+		0F6D74801E5DE25C004B6B2C /* LZYFourImageHelpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYFourImageHelpCell.m; sourceTree = "<group>"; };
+		0F6D74821E5DE26E004B6B2C /* LZYMoreImageHelpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYMoreImageHelpCell.h; sourceTree = "<group>"; };
+		0F6D74831E5DE26E004B6B2C /* LZYMoreImageHelpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYMoreImageHelpCell.m; sourceTree = "<group>"; };
 		0F76A56F1E5445E40070EB3D /* iOSStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F76A5731E5445E40070EB3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F76A5751E5445E40070EB3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
@@ -492,6 +545,128 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		0F62A8D91E5DF45F000DAE72 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0F62A8DA1E5DF472000DAE72 /* LZYLoginViewController.h */,
+				0F62A8DB1E5DF472000DAE72 /* LZYLoginViewController.m */,
+				0F62A8FD1E5F0C91000DAE72 /* LZYRegisterTableViewController.h */,
+				0F62A8FE1E5F0C91000DAE72 /* LZYRegisterTableViewController.m */,
+				0F62A9001E5FBE7F000DAE72 /* LZYForgetPasswordTableViewController.h */,
+				0F62A9011E5FBE7F000DAE72 /* LZYForgetPasswordTableViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0F62A8E81E5EBC6B000DAE72 /* LZYImage */ = {
+			isa = PBXGroup;
+			children = (
+				0F62A8E91E5EBC7B000DAE72 /* UIImage+LZYAdd.h */,
+				0F62A8EA1E5EBC7B000DAE72 /* UIImage+LZYAdd.m */,
+			);
+			path = LZYImage;
+			sourceTree = "<group>";
+		};
+		0F62A8EC1E5EC0BF000DAE72 /* LZYWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				0F62A8ED1E5EC0E6000DAE72 /* UIImageView+LZYWebCache.h */,
+				0F62A8EE1E5EC0E6000DAE72 /* UIImageView+LZYWebCache.m */,
+			);
+			path = LZYWebImage;
+			sourceTree = "<group>";
+		};
+		0F62A8F01E5EC565000DAE72 /* LZYMBHUD */ = {
+			isa = PBXGroup;
+			children = (
+				0F62A8F11E5EC576000DAE72 /* MBProgressHUD+LZYAdd.h */,
+				0F62A8F21E5EC576000DAE72 /* MBProgressHUD+LZYAdd.m */,
+			);
+			path = LZYMBHUD;
+			sourceTree = "<group>";
+		};
+		0F6D746B1E5D8E8A004B6B2C /* 交流 */ = {
+			isa = PBXGroup;
+			children = (
+				0F6D74701E5D97DA004B6B2C /* 编辑 */,
+				0FE3091B1E5AEDBA009D75F7 /* LZYMessageViewController.h */,
+				0FE3091C1E5AEDBA009D75F7 /* LZYMessageViewController.m */,
+				0FA9910E1E5BD4C400A53A35 /* LZYDynamicViewController.h */,
+				0FA9910F1E5BD4C400A53A35 /* LZYDynamicViewController.m */,
+				0FA991141E5C150500A53A35 /* LZYInviteJobViewController.h */,
+				0FA991151E5C150500A53A35 /* LZYInviteJobViewController.m */,
+				0FA991231E5C47D400A53A35 /* LZYInterviewViewController.h */,
+				0FA991241E5C47D400A53A35 /* LZYInterviewViewController.m */,
+				0F6D74681E5D8E72004B6B2C /* LZYHelpViewController.h */,
+				0F6D74691E5D8E72004B6B2C /* LZYHelpViewController.m */,
+			);
+			name = "交流";
+			sourceTree = "<group>";
+		};
+		0F6D746C1E5D8EA6004B6B2C /* 我 */ = {
+			isa = PBXGroup;
+			children = (
+				0F62A8D91E5DF45F000DAE72 /* Login */,
+				0F0517181E588716000EBF72 /* LZYPersonViewController.h */,
+				0F0517191E588716000EBF72 /* LZYPersonViewController.m */,
+				0F8060B31E5A953A0027DA85 /* LZYPDFReaderViewController.h */,
+				0F8060B41E5A953A0027DA85 /* LZYPDFReaderViewController.m */,
+				0F62A8F41E5ECF6B000DAE72 /* LZYSettingTableViewController.h */,
+				0F62A8F51E5ECF6B000DAE72 /* LZYSettingTableViewController.m */,
+			);
+			name = "我";
+			sourceTree = "<group>";
+		};
+		0F6D746D1E5D8EC0004B6B2C /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				0F76A5B51E5531DC0070EB3D /* LZYHomeViewController.h */,
+				0F76A5B61E5531DC0070EB3D /* LZYHomeViewController.m */,
+				0F76A5EA1E55C0CB0070EB3D /* LZYSecondSubjectTableViewController.h */,
+				0F76A5EB1E55C0CB0070EB3D /* LZYSecondSubjectTableViewController.m */,
+				0F0516AE1E569DE3000EBF72 /* LZYSubjectContentViewController.h */,
+				0F0516AF1E569DE3000EBF72 /* LZYSubjectContentViewController.m */,
+				0F0517151E570EE2000EBF72 /* LZYHomeSubViewController.h */,
+				0F0517161E570EE2000EBF72 /* LZYHomeSubViewController.m */,
+			);
+			name = "首页";
+			sourceTree = "<group>";
+		};
+		0F6D746F1E5D8ED9004B6B2C /* 练习 */ = {
+			isa = PBXGroup;
+			children = (
+				0F8060371E59EDD50027DA85 /* LZYTestEveryDayViewController.h */,
+				0F8060381E59EDD50027DA85 /* LZYTestEveryDayViewController.m */,
+			);
+			name = "练习";
+			sourceTree = "<group>";
+		};
+		0F6D74701E5D97DA004B6B2C /* 编辑 */ = {
+			isa = PBXGroup;
+			children = (
+				0F6D74711E5D97EE004B6B2C /* LZYEditInterviewViewController.h */,
+				0F6D74721E5D97EE004B6B2C /* LZYEditInterviewViewController.m */,
+			);
+			name = "编辑";
+			sourceTree = "<group>";
+		};
+		0F6D74751E5DE1F9004B6B2C /* LZYHelpCell */ = {
+			isa = PBXGroup;
+			children = (
+				0F6D74761E5DE210004B6B2C /* LZYBaseHelpTableViewCell.h */,
+				0F6D74771E5DE210004B6B2C /* LZYBaseHelpTableViewCell.m */,
+				0F6D74791E5DE237004B6B2C /* LZYOneImageHelpCell.h */,
+				0F6D747A1E5DE237004B6B2C /* LZYOneImageHelpCell.m */,
+				0F6D747C1E5DE249004B6B2C /* LZYTwoImageHelpCell.h */,
+				0F6D747D1E5DE249004B6B2C /* LZYTwoImageHelpCell.m */,
+				0F6D747F1E5DE25C004B6B2C /* LZYFourImageHelpCell.h */,
+				0F6D74801E5DE25C004B6B2C /* LZYFourImageHelpCell.m */,
+				0F6D74821E5DE26E004B6B2C /* LZYMoreImageHelpCell.h */,
+				0F6D74831E5DE26E004B6B2C /* LZYMoreImageHelpCell.m */,
+			);
+			path = LZYHelpCell;
+			sourceTree = "<group>";
+		};
 		0F76A5661E5445E40070EB3D = {
 			isa = PBXGroup;
 			children = (
@@ -563,28 +738,10 @@
 		0F76A5A61E5447AE0070EB3D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0F76A5B51E5531DC0070EB3D /* LZYHomeViewController.h */,
-				0F76A5B61E5531DC0070EB3D /* LZYHomeViewController.m */,
-				0F76A5EA1E55C0CB0070EB3D /* LZYSecondSubjectTableViewController.h */,
-				0F76A5EB1E55C0CB0070EB3D /* LZYSecondSubjectTableViewController.m */,
-				0F0516AE1E569DE3000EBF72 /* LZYSubjectContentViewController.h */,
-				0F0516AF1E569DE3000EBF72 /* LZYSubjectContentViewController.m */,
-				0F0517151E570EE2000EBF72 /* LZYHomeSubViewController.h */,
-				0F0517161E570EE2000EBF72 /* LZYHomeSubViewController.m */,
-				0F0517181E588716000EBF72 /* LZYPersonViewController.h */,
-				0F0517191E588716000EBF72 /* LZYPersonViewController.m */,
-				0F8060371E59EDD50027DA85 /* LZYTestEveryDayViewController.h */,
-				0F8060381E59EDD50027DA85 /* LZYTestEveryDayViewController.m */,
-				0F8060B31E5A953A0027DA85 /* LZYPDFReaderViewController.h */,
-				0F8060B41E5A953A0027DA85 /* LZYPDFReaderViewController.m */,
-				0FE3091B1E5AEDBA009D75F7 /* LZYMessageViewController.h */,
-				0FE3091C1E5AEDBA009D75F7 /* LZYMessageViewController.m */,
-				0FA9910E1E5BD4C400A53A35 /* LZYDynamicViewController.h */,
-				0FA9910F1E5BD4C400A53A35 /* LZYDynamicViewController.m */,
-				0FA991141E5C150500A53A35 /* LZYInviteJobViewController.h */,
-				0FA991151E5C150500A53A35 /* LZYInviteJobViewController.m */,
-				0FA991231E5C47D400A53A35 /* LZYInterviewViewController.h */,
-				0FA991241E5C47D400A53A35 /* LZYInterviewViewController.m */,
+				0F6D746F1E5D8ED9004B6B2C /* 练习 */,
+				0F6D746D1E5D8EC0004B6B2C /* 首页 */,
+				0F6D746C1E5D8EA6004B6B2C /* 我 */,
+				0F6D746B1E5D8E8A004B6B2C /* 交流 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -600,6 +757,8 @@
 				0FA991181E5C1A5100A53A35 /* LZYInviteJobModel.m */,
 				0FA9911D1E5C45FB00A53A35 /* LZYInterviewModel.h */,
 				0FA9911E1E5C45FB00A53A35 /* LZYInterviewModel.m */,
+				0F62A8E51E5EB4D4000DAE72 /* LZYUserModel.h */,
+				0F62A8E61E5EB4D4000DAE72 /* LZYUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -618,6 +777,9 @@
 		0F76A5A91E5447AE0070EB3D /* LZYKit */ = {
 			isa = PBXGroup;
 			children = (
+				0F62A8F01E5EC565000DAE72 /* LZYMBHUD */,
+				0F62A8EC1E5EC0BF000DAE72 /* LZYWebImage */,
+				0F62A8E81E5EBC6B000DAE72 /* LZYImage */,
 				0FE309171E5AE4B1009D75F7 /* LZYWaveView */,
 				0F0517071E56DFED000EBF72 /* LZYNONetView */,
 				0F0517061E56DF95000EBF72 /* LZYUnloadView */,
@@ -661,6 +823,10 @@
 				0F0516A91E569C56000EBF72 /* LZYNetwork.m */,
 				0F0516A41E568EA2000EBF72 /* LZYBmobQueryTypeModel.h */,
 				0F0516A51E568EA2000EBF72 /* LZYBmobQueryTypeModel.m */,
+				0F62A8F71E5EDF25000DAE72 /* LZYBmobSMSModel.h */,
+				0F62A8F81E5EDF25000DAE72 /* LZYBmobSMSModel.m */,
+				0F62A8FA1E5EE16F000DAE72 /* LZYSMSTimerManager.h */,
+				0F62A8FB1E5EE16F000DAE72 /* LZYSMSTimerManager.m */,
 			);
 			path = Bmob;
 			sourceTree = "<group>";
@@ -668,6 +834,7 @@
 		0F76A5AD1E544A350070EB3D /* MyFunctionViews */ = {
 			isa = PBXGroup;
 			children = (
+				0F6D74751E5DE1F9004B6B2C /* LZYHelpCell */,
 				0F8060341E59709D0027DA85 /* LZYCardPushView.h */,
 				0F8060351E59709D0027DA85 /* LZYCardPushView.m */,
 				0F76A5AE1E544EB50070EB3D /* LZYSegCollectionViewController.h */,
@@ -870,6 +1037,7 @@
 		0F8060B61E5ABA540027DA85 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0F62A8E31E5E8910000DAE72 /* backgroundImage.jpg */,
 				0F8060B71E5ABA540027DA85 /* Reader.pdf */,
 			);
 			path = Resources;
@@ -1034,6 +1202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F8061111E5AD0210027DA85 /* Web in Resources */,
+				0F62A8E41E5E8910000DAE72 /* backgroundImage.jpg in Resources */,
 				0F76A5CE1E55A4BD0070EB3D /* LZYHomeSegView.xib in Resources */,
 				0F76A5821E5445E40070EB3D /* LaunchScreen.storyboard in Resources */,
 				0F8060C31E5AC92C0027DA85 /* AddFileViewController.xib in Resources */,
@@ -1150,6 +1319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F62A8FF1E5F0C91000DAE72 /* LZYRegisterTableViewController.m in Sources */,
 				0F0516B91E569E35000EBF72 /* IMYWebView.m in Sources */,
 				0F8060AC1E5A94A90027DA85 /* ReaderThumbRequest.m in Sources */,
 				0F0516A31E5686C7000EBF72 /* LZYSecondSubjectModel.m in Sources */,
@@ -1157,6 +1327,7 @@
 				0FA991191E5C1A5100A53A35 /* LZYInviteJobModel.m in Sources */,
 				0F8060A21E5A94A90027DA85 /* ReaderContentTile.m in Sources */,
 				0F05170C1E56E372000EBF72 /* LZYNetLoadView.m in Sources */,
+				0F6D747E1E5DE249004B6B2C /* LZYTwoImageHelpCell.m in Sources */,
 				0FE309231E5B0023009D75F7 /* LZYTabBarViewController.m in Sources */,
 				0F76A5771E5445E40070EB3D /* AppDelegate.m in Sources */,
 				0F8060A91E5A94A90027DA85 /* ReaderThumbFetch.m in Sources */,
@@ -1166,6 +1337,7 @@
 				0FE3091D1E5AEDBA009D75F7 /* LZYMessageViewController.m in Sources */,
 				0F76A5DD1E55AF700070EB3D /* LZYDelegateRegister.m in Sources */,
 				0F8060A11E5A94A90027DA85 /* ReaderContentPage.m in Sources */,
+				0F62A8FC1E5EE16F000DAE72 /* LZYSMSTimerManager.m in Sources */,
 				0F0517401E5896A8000EBF72 /* View+MASAdditions.m in Sources */,
 				0FA991221E5C47BC00A53A35 /* LZYInterviewTableViewCell.m in Sources */,
 				0F8060AB1E5A94A90027DA85 /* ReaderThumbRender.m in Sources */,
@@ -1177,18 +1349,23 @@
 				0F76A5B71E5531DC0070EB3D /* LZYHomeViewController.m in Sources */,
 				0FA991251E5C47D400A53A35 /* LZYInterviewViewController.m in Sources */,
 				0F8060A61E5A94A90027DA85 /* ReaderMainPagebar.m in Sources */,
+				0F6D74781E5DE210004B6B2C /* LZYBaseHelpTableViewCell.m in Sources */,
 				0F8060AD1E5A94A90027DA85 /* ReaderThumbsView.m in Sources */,
+				0F62A8E71E5EB4D4000DAE72 /* LZYUserModel.m in Sources */,
 				0F8060B11E5A94A90027DA85 /* ThumbsViewController.m in Sources */,
 				0F0516A61E568EA2000EBF72 /* LZYBmobQueryTypeModel.m in Sources */,
 				0F80609F1E5A94A90027DA85 /* CGPDFDocument.m in Sources */,
 				0F8060A81E5A94A90027DA85 /* ReaderThumbCache.m in Sources */,
+				0F6D74731E5D97EE004B6B2C /* LZYEditInterviewViewController.m in Sources */,
 				0F0517051E56D874000EBF72 /* NSString+LZYAdd.m in Sources */,
 				0F05173C1E5896A8000EBF72 /* MASViewAttribute.m in Sources */,
 				0F76A5EC1E55C0CB0070EB3D /* LZYSecondSubjectTableViewController.m in Sources */,
 				0F8060AE1E5A94A90027DA85 /* ReaderThumbView.m in Sources */,
 				0FA991101E5BD4C400A53A35 /* LZYDynamicViewController.m in Sources */,
+				0F6D74811E5DE25C004B6B2C /* LZYFourImageHelpCell.m in Sources */,
 				0F0517391E5896A8000EBF72 /* MASConstraint.m in Sources */,
 				0F05171F1E589368000EBF72 /* LZYPersonBackgroundView.m in Sources */,
+				0F62A8EF1E5EC0E6000DAE72 /* UIImageView+LZYWebCache.m in Sources */,
 				0F8060AA1E5A94A90027DA85 /* ReaderThumbQueue.m in Sources */,
 				0FA991131E5BD7EB00A53A35 /* LZYDynamicTitlesView.m in Sources */,
 				0F0516BA1E569E35000EBF72 /* WYWeakScriptMessageDelegate.m in Sources */,
@@ -1197,18 +1374,22 @@
 				0F8060361E59709D0027DA85 /* LZYCardPushView.m in Sources */,
 				0F8060B21E5A94A90027DA85 /* UIXToolbarView.m in Sources */,
 				0F0516A01E55C2D3000EBF72 /* LZYSecondSubjectTableViewCell.m in Sources */,
+				0F6D746A1E5D8E72004B6B2C /* LZYHelpViewController.m in Sources */,
 				0F76A5C81E559F100070EB3D /* iCarousel.m in Sources */,
 				0F8060B01E5A94A90027DA85 /* ThumbsMainToolbar.m in Sources */,
 				0F8060A01E5A94A90027DA85 /* ReaderConstants.m in Sources */,
 				0F0516FD1E56D165000EBF72 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				0F76A5D71E55AF340070EB3D /* LZYEasyCollectionViewCell.m in Sources */,
 				0F05173F1E5896A8000EBF72 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				0F62A8F91E5EDF25000DAE72 /* LZYBmobSMSModel.m in Sources */,
 				0F0516B81E569E35000EBF72 /* IMY_NJKWebViewProgress.m in Sources */,
 				0F8060A51E5A94A90027DA85 /* ReaderDocumentOutline.m in Sources */,
+				0F62A8DC1E5DF472000DAE72 /* LZYLoginViewController.m in Sources */,
 				0F8060AF1E5A94A90027DA85 /* ReaderViewController.m in Sources */,
 				0F05173D1E5896A8000EBF72 /* MASViewConstraint.m in Sources */,
 				0F8060A31E5A94A90027DA85 /* ReaderContentView.m in Sources */,
 				0FE309281E5B091F009D75F7 /* LZYCardPageView.m in Sources */,
+				0F6D747B1E5DE237004B6B2C /* LZYOneImageHelpCell.m in Sources */,
 				0FA9911F1E5C45FB00A53A35 /* LZYInterviewModel.m in Sources */,
 				0F8060A41E5A94A90027DA85 /* ReaderDocument.m in Sources */,
 				0F76A5D91E55AF340070EB3D /* LZYCollectionViewFlowLayout.m in Sources */,
@@ -1217,16 +1398,21 @@
 				0FA991281E5D302C00A53A35 /* LZYWaveView.m in Sources */,
 				0F05173B1E5896A8000EBF72 /* MASLayoutConstraint.m in Sources */,
 				0F0517011E56D783000EBF72 /* UIColor+LZYAdd.m in Sources */,
+				0F62A8EB1E5EBC7B000DAE72 /* UIImage+LZYAdd.m in Sources */,
 				0FA991161E5C150500A53A35 /* LZYInviteJobViewController.m in Sources */,
 				0F76A5E31E55B4AE0070EB3D /* LZYSubjectTitleModel.m in Sources */,
 				0FA9911C1E5C23A000A53A35 /* LZYInviteJobTableViewCell.m in Sources */,
 				0F8060C21E5AC92C0027DA85 /* AddFileViewController.m in Sources */,
 				0F8060C41E5AC92C0027DA85 /* XXPath.m in Sources */,
+				0F62A8F61E5ECF6B000DAE72 /* LZYSettingTableViewController.m in Sources */,
 				0F0516B01E569DE3000EBF72 /* LZYSubjectContentViewController.m in Sources */,
+				0F6D74841E5DE26E004B6B2C /* LZYMoreImageHelpCell.m in Sources */,
 				0F0517171E570EE2000EBF72 /* LZYHomeSubViewController.m in Sources */,
 				0F8060B51E5A953A0027DA85 /* LZYPDFReaderViewController.m in Sources */,
+				0F62A8F31E5EC576000DAE72 /* MBProgressHUD+LZYAdd.m in Sources */,
 				0F76A5E61E55BA520070EB3D /* LZYHomeSegView.m in Sources */,
 				0F8060C11E5AC92C0027DA85 /* XXHTTPConnection.m in Sources */,
+				0F62A9021E5FBE7F000DAE72 /* LZYForgetPasswordTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

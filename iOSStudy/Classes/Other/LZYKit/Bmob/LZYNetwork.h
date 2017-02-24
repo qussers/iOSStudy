@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "LZYBmobSMSModel.h"
 
 @interface LZYNetwork : NSObject
 
@@ -38,9 +39,43 @@
                               success:(void(^)(NSArray *result))success
                               failure:(void(^)(id result))failure;
 
+
 //获取面试信息详情
 + (void)requestInterviewWithTableName:(NSString *)name
                               success:(void(^)(NSArray *result))success
                               failure:(void(^)(id result))failure;
+
+//用户登录 账户+密码
++ (void)loginWithAccount:(NSString *)account
+                password:(NSString *)password
+                 success:(void(^)(id user))success
+                 failure:(void(^)(id result))failure;
+
+
+//用户登录 手机号+密码
++ (void)loginWithMobilePhoneNumber:(NSString *)mobilePhoneNumber
+                           SMSCode:(NSString *)SMScode
+                           success:(void(^)(id user))success
+                           failure:(void(^)(id result))failure;
+
+//用户注册+登录 手机号+验证码
++ (void)registerAndLoginWithMobilePhoneNumber:(NSString *)mobilePhoneNumber
+                                      SMSCode:(NSString *)SMScode
+                                      success:(void(^)(id user))success
+                                      failure:(void(^)(id result))failure;
+
+//用户注册  手机号+验证码
++ (void)registerWithMobilPhoneNumber:(NSString *)mobilePhoneNumber
+                             SMSCode:(NSString *)SMScode
+                            password:(NSString *)password
+                             success:(void(^)(id user))success
+                             failure:(void(^)(id result))failure;
+
+
+//请求验证码
++ (void)requestSMSWithMobilePhoneNumber:(NSString *)mobilePhoneNumber
+                               SMSModel:(LZYBmobSMSModel *)smsModel
+                                success:(void(^)(NSInteger msgId))success
+                                failure:(void(^)(id result))failure;
 
 @end

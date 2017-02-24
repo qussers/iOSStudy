@@ -10,11 +10,9 @@
 
 @interface LZYSecondSubjectTableViewCell : UITableViewCell
 
-
 @property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *subTagLabel;
-
 
 @property (weak, nonatomic) IBOutlet UIImageView *firstStar;
 
@@ -27,4 +25,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *fifthStar;
 
 - (void)configeWithDifficult:(NSInteger)difficult;
+
 @end

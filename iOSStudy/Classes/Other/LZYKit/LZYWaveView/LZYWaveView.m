@@ -29,14 +29,19 @@
 
 
 @interface LZYWaveView ()
+
 //刷屏器
 @property (nonatomic, strong) CADisplayLink *timer;
-//真实浪
-@property (nonatomic, strong) CAShapeLayer *realWaveLayer;
-//遮罩浪
-@property (nonatomic, strong) CAShapeLayer *maskWaveLayer;
 
+//真实浪(默认有0.6透明度)
+@property (nonatomic, strong) CAShapeLayer *realWaveLayer;
+
+//背景浪
+@property (nonatomic, strong) CAShapeLayer *backgroundWaveLayer;
+
+//偏移量
 @property (nonatomic, assign) CGFloat offset;
+
 
 @end
 
@@ -68,12 +73,12 @@
     self.waveSpeed = 0.1;
     self.waveCurvature = 1.5;
     self.waveHeight = 6;
+    
     self.waveColor = [[UIColor blueColor] colorWithAlphaComponent:0.6];
+    self.backgroundWaveColor = [UIColor blueColor];
     
-    [self.layer addSublayer:self.maskWaveLayer];
+    [self.layer addSublayer:self.backgroundWaveLayer];
     [self.layer addSublayer:self.realWaveLayer];
-    
-    
     self.backgroundColor = [UIColor clearColor];
 }
 
@@ -86,22 +91,22 @@
         frame.size.height = self.waveHeight;
         _realWaveLayer.frame = frame;
         _realWaveLayer.fillColor = self.waveColor.CGColor;
-        
+    
     }
     return _realWaveLayer;
 }
 
-- (CAShapeLayer *)maskWaveLayer{
+- (CAShapeLayer *)backgroundWaveLayer{
     
-    if (!_maskWaveLayer) {
-        _maskWaveLayer = [CAShapeLayer layer];
+    if (!_backgroundWaveLayer) {
+        _backgroundWaveLayer = [CAShapeLayer layer];
         CGRect frame = [self bounds];
         frame.origin.y = 0;
         frame.size.height = self.waveHeight;
-        _maskWaveLayer.frame = frame;
-        _maskWaveLayer.fillColor = self.waveColor.CGColor ;
+        _backgroundWaveLayer.frame = frame;
+        _backgroundWaveLayer.fillColor = self.backgroundWaveColor.CGColor ;
     }
-    return _maskWaveLayer;
+    return _backgroundWaveLayer;
 }
 
 - (void)setWaveHeight:(CGFloat)waveHeight{
@@ -115,14 +120,14 @@
     CGRect frame1 = [self bounds];
     frame1.origin.y = frame1.size.height-self.waveHeight;
     frame1.size.height = self.waveHeight;
-    _maskWaveLayer.frame = frame1;
+    _backgroundWaveLayer.frame = frame1;
     
 }
 
 - (void)setWaveColor:(UIColor *)waveColor
 {
     _waveColor = [waveColor colorWithAlphaComponent:0.6];
-    
+
 }
 
 - (void)startWaveAnimation{
@@ -149,39 +154,46 @@
     //真实浪
     CGMutablePathRef path = CGPathCreateMutable();
     CGFloat y = 0.f;
+    
     //遮罩浪
-    CGMutablePathRef maskpath = CGPathCreateMutable();
-    CGPathMoveToPoint(maskpath, NULL, 0, height);
-    CGFloat maskY = 0.f;
-    CGPathMoveToPoint(path, NULL, 0, self.frame.size.height);
+    CGMutablePathRef backgroundpath = CGPathCreateMutable();
+    CGFloat y2 = 0.f;
+    
+    //左侧起点
+    CGPathMoveToPoint(path, NULL, 0, height *sinf(self.offset * 0.045));
+    
+    //背景浪起点
+    CGPathMoveToPoint(backgroundpath, NULL, 0,MAX(height *sinf(self.offset * 0.045), height *cosf(self.offset * 0.045)) );
+    
     for (CGFloat x = 0.f; x <= width ; x++) {
+
         y = height * sinf(0.01 * self.waveCurvature * x + self.offset * 0.045);
         CGPathAddLineToPoint(path, NULL, x, y);
-        
-        maskY = height * cosf(0.01 * self.waveCurvature * x + self.offset * 0.045); ;
-        CGPathAddLineToPoint(maskpath, NULL, x, maskY);
+        y2 = height * cosf(0.01 * self.waveCurvature * x + self.offset * 0.045); ;
+        CGPathAddLineToPoint(backgroundpath, NULL, x, MAX(y, y2));
     }
     
-    //变化的中间Y值
-    CGFloat centX = self.bounds.size.width/2;
-    CGFloat CentY = height * sinf(0.01 * self.waveCurvature *centX  + self.offset * 0.045);
-    if (self.waveBlock) {
-        self.waveBlock(CentY);
+    //背景浪结束绘制（右下角->左下角->起点）
+    CGPathAddLineToPoint(backgroundpath, NULL, width, self.frame.size.height);
+    CGPathAddLineToPoint(backgroundpath, NULL, 0, self.frame.size.height);
+    CGPathMoveToPoint(backgroundpath, NULL, 0,MAX(height *sinf(self.offset * 0.045), height *cosf(self.offset * 0.045)) );
+    
+    CGPathCloseSubpath(backgroundpath);
+    self.backgroundWaveLayer.path = backgroundpath;
+    self.backgroundWaveLayer.fillColor = self.backgroundWaveColor.CGColor;
+    CGPathRelease(backgroundpath);
+    
+    for (CGFloat x = width; x >= 0; x--) {
+        y = height * cosf(0.01 * self.waveCurvature * x + self.offset * 0.045); ;
+        CGPathAddLineToPoint(path, NULL, x, y);
     }
     
-    CGPathAddLineToPoint(path, NULL, width, self.frame.size.height);
-    CGPathAddLineToPoint(path, NULL, 0, self.frame.size.height);
+    //浪花回到起点
+    CGPathAddLineToPoint(path, NULL,0, height *sinf(self.offset * 0.045));
     CGPathCloseSubpath(path);
     self.realWaveLayer.path = path;
     self.realWaveLayer.fillColor = self.waveColor.CGColor;
     CGPathRelease(path);
-    
-    CGPathAddLineToPoint(maskpath, NULL, width, self.frame.size.height);
-    CGPathAddLineToPoint(maskpath, NULL, 0, self.frame.size.height);
-    CGPathCloseSubpath(maskpath);
-    self.maskWaveLayer.path = maskpath;
-    self.maskWaveLayer.fillColor = self.waveColor.CGColor;
-    CGPathRelease(maskpath);
     
 }
 

@@ -132,7 +132,6 @@ NSInteger defaultPageNumber = 3;
     [self.cardsViewStore addObject:newView];
     if (self.dataSource && CGRectEqualToRect(self.cardViewFrame, self.frame) && newView.subviews.count == 0) {
         UIView *subView = [self.dataSource cardPushView:self index:index];
-#warning !!!
         subView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
         if (subView) {
             subView.frame = newView.bounds;

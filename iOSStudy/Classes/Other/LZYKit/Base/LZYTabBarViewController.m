@@ -19,19 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-
-
+        
     LZYWaveView *waveView = [[LZYWaveView alloc] initWithFrame:CGRectMake(0, 0, LZYSCREEN_WIDTH, 49)];
     waveView.waveColor = [UIColor colorWithHexString:MainColor];
+    waveView.backgroundWaveColor = [UIColor colorWithHexString:MainColor];
     [waveView startWaveAnimation];
     
     [[UITabBar appearance] setBackgroundImage:[UIImage new]];
     [[UITabBar appearance] setShadowImage:[UIImage new]];
     [[UITabBar appearance] insertSubview:waveView atIndex:0];
 
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,4 +10,16 @@
 
 @implementation LZYSecondSubjectModel
 
+- (instancetype)initFromBmobObject:(BmobObject *)obj
+{
+    if (self = [super initFromBmobObject:obj]) {
+        _answerUrl = [obj objectForKey:@"content"];
+        _subjectTitle = [obj objectForKey:@"title"];
+        _subjectTag = [obj objectForKey:@"subject_tag"];
+        _tag  = [obj objectForKey:@"tag"];
+        _difficult = [[obj objectForKey:@"difficult"] integerValue];
+    }
+    return self;
+}
+
 @end

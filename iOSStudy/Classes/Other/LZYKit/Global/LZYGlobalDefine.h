@@ -17,6 +17,8 @@
 
 #define LZYBMOBKEY @"167ea7cd2e78d178fb63807dd8eabf14"
 
+#define LZYDEFAULTICONURL @"http://touxiang.qqzhi.com/uploads/2012-11/1111104151660.jpg"
+
 //存储科目类别的表名
 #define LZYBMOBSUBJECTTITLENAME @"LZYTitle"
 
@@ -30,7 +32,7 @@
 #define LZYBMOBINVITEJOB @"LZYInviteJob"
 
 //面试信息表
-#define LZYBMOBINTERVIEW @"LZYInterView"
+#define LZYBMOBINTERVIEW @"LZYInterviewModel"
 
 //错误返回码
 #define LZYBMOBERRORNOTARRAY @"当前对象不为数组"

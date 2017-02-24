@@ -26,7 +26,8 @@
 //查询条件模型
 #import "LZYBmobQueryTypeModel.h"
 
-//
+//用户模型
+#import "LZYUserModel.h"
 
 @implementation LZYNetwork
 
@@ -106,8 +107,6 @@
             NSMutableArray *muResult = @[].mutableCopy;
             for (BmobObject *obj in result) {
                 LZYSubjectTitleModel *model = [[LZYSubjectTitleModel alloc] initFromBmobObject:obj];
-                model.subTitle = [obj objectForKey:@"title"];
-                model.color = [obj objectForKey:@"color"];
                 [muResult addObject:model];
             }
             success(muResult);
@@ -143,11 +142,6 @@
             NSMutableArray *muResult = @[].mutableCopy;
             for (BmobObject *obj in result) {
                 LZYSecondSubjectModel *model = [[LZYSecondSubjectModel alloc] initFromBmobObject:obj];
-                model.answerUrl = [obj objectForKey:@"content"];
-                model.subjectTitle = [obj objectForKey:@"title"];
-                model.subjectTag = [obj objectForKey:@"subject_tag"];
-                model.tag  = [obj objectForKey:@"tag"];
-                model.difficult = [[obj objectForKey:@"difficult"] integerValue];
                 [muResult addObject:model];
             }
             success(muResult);
@@ -174,16 +168,7 @@
             NSMutableArray *mArr = @[].mutableCopy;
             for (BmobObject *obj in result) {
                 LZYInviteJobModel *model = [[LZYInviteJobModel alloc] initFromBmobObject:obj];
-                model.cityName = [obj objectForKey:@"cityName"];
-                model.townName = [obj objectForKey:@"townName"];
-                model.jobTitle = [obj objectForKey:@"jobTitle"];
-                model.experience = [obj objectForKey:@"experience"];
-                model.companyName = [obj objectForKey:@"companyName"];
-                model.companyType = [obj objectForKey:@"companyType"];
-                model.inviteName = [obj objectForKey:@"inviteName"];
-                model.invitePosition = [obj objectForKey:@"invitePosition"];
-                model.salary = [obj objectForKey:@"salary"];
-                model.inviteUserId = [obj objectForKey:@"inviteUserId"];
+
                 [mArr addObject:model];
             }
             success(mArr);
@@ -207,13 +192,6 @@
             NSMutableArray *mArr = @[].mutableCopy;
             for (BmobObject *obj in result) {
                 LZYInterviewModel *model = [[LZYInterviewModel alloc] initFromBmobObject:obj];
-                model.companyName = [obj objectForKey:@"companyName"];
-                model.tagArr = [obj objectForKey:@"tags"];
-                model.interviewContent = [obj objectForKey:@"interviewContent"];
-                model.commentCount = [[obj objectForKey:@"commentCount"] integerValue];
-                model.jobTitle = [obj objectForKey:@"jobTitle"];
-                model.likes = [[obj objectForKey:@"likes"] integerValue];
-                model.interviewUserName = [obj objectForKey:@"interviewUserName"];
                 [mArr addObject:model];
             }
             success(mArr);
@@ -223,6 +201,103 @@
         failure(result);
     }];
     
+}
+
+
+//用户登录 账户+密码
++ (void)loginWithAccount:(NSString *)account
+                password:(NSString *)password
+                 success:(void(^)(id user))success
+                 failure:(void(^)(id result))failure
+{
+
+    [BmobUser loginWithUsernameInBackground:account password:password block:^(BmobUser *user, NSError *error) {
+        if (user) {
+            LZYUserModel *model = [[LZYUserModel alloc] initFromBmobObject:user];
+            success(model);
+        }
+        else{
+            failure(error);
+        }
+    }];
+}
+
+
+
+//用户登录 手机号+密码
++ (void)loginWithMobilePhoneNumber:(NSString *)mobilePhoneNumber
+                           SMSCode:(NSString *)SMScode
+                           success:(void(^)(id user))success
+                           failure:(void(^)(id result))failure
+{
+    [BmobUser loginInbackgroundWithMobilePhoneNumber:mobilePhoneNumber andSMSCode:SMScode block:^(BmobUser *user, NSError *error) {
+        if (user) {
+            LZYUserModel *model = [[LZYUserModel alloc] initFromBmobObject:user];
+            success(model);
+        }
+        else{
+            failure(error);
+        }
+        
+    }];
+}
+
+//用户注册+登录 手机号+验证码
++ (void)registerAndLoginWithMobilePhoneNumber:(NSString *)mobilePhoneNumber
+                                      SMSCode:(NSString *)SMScode
+                                      success:(void(^)(id user))success
+                                      failure:(void(^)(id result))failure
+{
+
+    [BmobUser signOrLoginInbackgroundWithMobilePhoneNumber:mobilePhoneNumber andSMSCode:SMScode block:^(BmobUser *user, NSError *error) {
+       
+        if (user) {
+            LZYUserModel *model = [[LZYUserModel alloc] initFromBmobObject:user];
+            success(model);
+        }
+        else{
+            failure(error);
+        }
+        
+    }];
+}
+
+//请求验证码
++ (void)requestSMSWithMobilePhoneNumber:(NSString *)mobilePhoneNumber
+                               SMSModel:(LZYBmobSMSModel *)smsModel
+                                success:(void(^)(NSInteger msgId))success
+                                failure:(void(^)(id result))failure
+{
+    [BmobSMS requestSMSCodeInBackgroundWithPhoneNumber:mobilePhoneNumber andTemplate:smsModel.smsTypeName resultBlock:^(int number, NSError *error) {
+       
+        if (error) {
+            failure(error);
+        }
+        else{
+            success(number);
+        }
+    }];
+}
+
+
+
++ (void)registerWithMobilPhoneNumber:(NSString *)mobilePhoneNumber
+                             SMSCode:(NSString *)SMScode
+                            password:(NSString *)password
+                             success:(void(^)(id user))success
+                             failure:(void(^)(id result))failure
+{
+    [BmobUser signOrLoginInbackgroundWithMobilePhoneNumber:mobilePhoneNumber SMSCode:SMScode andPassword:password block:^(BmobUser *user, NSError *error) {
+       
+        if (user) {
+            LZYUserModel *userModel = [[LZYUserModel alloc] initFromBmobObject:user];
+            success(userModel);
+        }
+        else{
+            failure(error);
+        }
+    }];
+
 }
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 izijia. All rights reserved.
 //
 
-#import <BmobSDK/BmobObject.h>
+#import <BmobSDK/Bmob.h>
 
 @interface LZYSubjectTitleModel : BmobObject
 

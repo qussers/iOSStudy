@@ -10,4 +10,13 @@
 
 @implementation LZYSubjectTitleModel
 
+- (instancetype)initFromBmobObject:(BmobObject *)obj
+{
+    if (self = [super initFromBmobObject:obj]) {
+        _subTitle = [obj objectForKey:@"title"];
+        _color = [obj objectForKey:@"color"];
+    }
+    return self;
+}
+
 @end
