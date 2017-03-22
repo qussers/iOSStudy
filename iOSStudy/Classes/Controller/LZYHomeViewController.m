@@ -15,10 +15,17 @@
 #import "LZYSecondSubjectTableViewController.h"
 #import "LZYHomeSubViewController.h"
 #import "UIColor+LZYAdd.h"
+#import "NSString+LZYAdd.h"
+
+
+#import "LZYExpertModel.h"
 @interface LZYHomeViewController ()<iCarouselDataSource, iCarouselDelegate>
 
 
 @property (nonatomic ,strong) NSMutableArray *dataSource;
+
+
+
 
 @end
 
@@ -30,6 +37,8 @@
     
     [self setupCarouselView];
     [self requestData];
+    
+
 }
 
 //针对首页视图显示和隐藏tabbar设置
@@ -70,6 +79,19 @@
     }];
 }
 
+- (IBAction)rightItemClick:(UIBarButtonItem *)sender {
+    
+    NSArray *viewControlelrs = self.tabBarController.viewControllers;
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *nav = [storyBoard instantiateViewControllerWithIdentifier:@"LZYHomeExViewNavController"];
+    NSArray *newViewControllers = @[nav,viewControlelrs[1],viewControlelrs[2],viewControlelrs[3]];
+    
+    [self.tabBarController setViewControllers:newViewControllers];
+    
+}
+
+
+
 #pragma marj - iCarousel methods
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
@@ -80,7 +102,6 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
-    
     if (!view)
     {
         view = [LZYHomeSegView loadViewWithXibName:@"LZYHomeSegView"];
@@ -92,13 +113,12 @@
         myView.backgroundColor = [UIColor colorWithHexString:model.color];
         [myView.titleBtn setTitle:model.subTitle forState:UIControlStateNormal];
     }
-
     return view;
 }
 
+
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
     {
-        
         switch (option)
         {
             case iCarouselOptionWrap:
@@ -115,7 +135,7 @@
             }
             case iCarouselOptionSpacing:
                 {
-                    return value * 1.2;
+                    return value * 1.6;
                 }
             default:
             {
@@ -131,13 +151,6 @@
     LZYSubjectTitleModel *model = self.dataSource[index];
     vc.subjectTag = model.subTitle;
     [self.navigationController pushViewController:vc animated:YES];
-    
-//    
-//    UIStoryboard *stotyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    LZYSecondSubjectTableViewController *vc = [stotyboard instantiateViewControllerWithIdentifier:@"secondSubject"];
-//    LZYSubjectTitleModel *model = self.dataSource[index];
-//    vc.subjectTag = model.subTitle;
-//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - lazy

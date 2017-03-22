@@ -7,11 +7,14 @@
 //
 
 #import "LZYRegisterTableViewController.h"
-#import "MBProgressHUD+LZYAdd.h"
+#import "LZYGlobalDefine.h"
 #import "LZYNetwork.h"
 #import "LZYSMSTimerManager.h"
 #import "LZYBmobSMSModel.h"
+#import "UITextField+LZYAdd.h"
+#import "MBProgressHUD+LZYAdd.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
+#import "LZYRongConnectHelper.h"
 @interface LZYRegisterTableViewController ()
 
 @end
@@ -25,6 +28,8 @@
     //验证码通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(smsLeftTimeNotice:) name:LZYSENDSMSLEDTTIMECHANGEDNOTICE object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(smsEndNotice:) name:LZYSENDSMSLEFTTIMEZERONOTIVE object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissSuccess) name:LZYNOTICE_LOGINSUCCESS  object:nil];
   
 }
 
@@ -33,16 +38,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
 - (IBAction)smsButtonClick:(id)sender {
     
-    
-    if (self.mobilePhoneNumberTextField.text <= 0) {
-        [MBProgressHUD showError:@"账户不能为空"];
+    if (![self.mobilePhoneNumberTextField filterMobilePhoneNumber]) {
         return;
     }
-    if ([LZYSMSTimerManager defaultSMSTimeManager].leftTime == 0) {
+    if ([LZYSMSTimerManager defaultSMSTimeManager].isAllowRequestSMS) {
         //发送验证码计时
         LZYBmobSMSModel *smsModel = [[LZYBmobSMSModel alloc] init];
         smsModel.type = kSMSLogin;
@@ -54,13 +55,12 @@
             [MBProgressHUD showError:[er.userInfo objectForKey:@"error"]];
         }];
     }
-
 }
 
 - (IBAction)registerButtonClick:(id)sender {
     
     BOOL isOk = YES;
-    isOk =  [self filterMobilePhoneNumber] && [self filterSMSCode] && [self filterPassword] && [self filterPassword2];
+    isOk =  [self.mobilePhoneNumberTextField filterMobilePhoneNumber] && [self.smsTextField filterSMSCode] && [self.passwordTextField filterPassword] && [self.passwordTextField2 filterPassword2WithPassword:self.passwordTextField];
     if (!isOk) {
         return;
     }
@@ -68,12 +68,19 @@
     [MBProgressHUD showError:@"正在注册..."];
     [LZYNetwork registerWithMobilPhoneNumber:self.mobilePhoneNumberTextField.text SMSCode:self.smsTextField.text password:self.passwordTextField.text success:^(id user) {
         [MBProgressHUD hideHUD];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [LZYRongConnectHelper connectToRongCloud];
     } failure:^(id result) {
         [MBProgressHUD hideHUD];
         [MBProgressHUD showError:@"注册失败..."];
     }];
 }
+
+
+- (void)dismissSuccess
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
 - (void)smsLeftTimeNotice:(NSNotification *)notification
@@ -93,50 +100,7 @@
     });
 }
 
-#pragma mark - filter
 
-- (BOOL)filterMobilePhoneNumber
-{
-    if (self.mobilePhoneNumberTextField.text.length <= 0) {
-        [MBProgressHUD showError:@"手机号码为空"];
-        return NO;
-    }
-    return YES;
-}
-
-- (BOOL)filterSMSCode
-{
-    if (self.smsTextField.text.length <= 0) {
-        [MBProgressHUD showError:@"验证码为空"];
-        return NO;
-    }
-    return YES;
-}
-
-- (BOOL)filterPassword
-{
-    if (self.passwordTextField.text.length < 6 ) {
-        [MBProgressHUD showError:@"密码太短"];
-        return NO;
-    }
-    return YES;
-}
-
-- (BOOL)filterPassword2
-{
-    if (self.passwordTextField2.text.length == 0 ) {
-        [MBProgressHUD showError:@"重复密码为空"];
-        return NO;
-    }
-    
-    if (![self.passwordTextField2.text isEqualToString:self.passwordTextField.text]) {
-        [MBProgressHUD showError:@"密码不一致"];
-        
-        return NO;
-    }
-    
-    return YES;
-}
 
 #pragma mark - 析构
 - (void)dealloc

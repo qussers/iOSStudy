@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
 
-
 @property (strong, nonatomic) UIScrollView *contentScrollView;
 
 @property (nonatomic, copy) NSString *subjectTag;

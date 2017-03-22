@@ -15,7 +15,7 @@
 
 - (void)setType:(smsType)type
 {
-   
+
     _type = type;
     switch (type) {
     case kSMSLogin:

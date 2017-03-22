@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LZYExDetailBottomView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgQ-jF-GIq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acb-Rw-Bjq">
+                            <rect key="frame" x="172" y="9" width="31" height="30"/>
+                            <state key="normal" title="讨论">
+                                <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.10467930540000001" green="0.81552555859999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Acb-Rw-Bjq" firstAttribute="centerY" secondItem="tgQ-jF-GIq" secondAttribute="centerY" id="Bql-eb-6AM"/>
+                        <constraint firstItem="Acb-Rw-Bjq" firstAttribute="centerX" secondItem="tgQ-jF-GIq" secondAttribute="centerX" id="jm9-Bf-CQx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tgQ-jF-GIq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AFe-Y9-Orr"/>
+                <constraint firstItem="tgQ-jF-GIq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YZs-l0-eAm"/>
+                <constraint firstAttribute="trailing" secondItem="tgQ-jF-GIq" secondAttribute="trailing" id="Yj7-bY-1I2"/>
+                <constraint firstAttribute="bottom" secondItem="tgQ-jF-GIq" secondAttribute="bottom" id="vHB-ss-bbR"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleBtn" destination="Acb-Rw-Bjq" id="udN-UZ-5zm"/>
+            </connections>
+            <point key="canvasLocation" x="50.5" y="118.5"/>
+        </view>
+    </objects>
+</document>

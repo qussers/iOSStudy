@@ -20,6 +20,7 @@
         manager.totalTime = 60;
         manager.consumeTime = 0;
         manager.leftTime = 0;
+        manager.isAllowRequestSMS = YES;
     });
     
     return manager;
@@ -57,12 +58,16 @@
             [NSThread sleepForTimeInterval:1.0f];
             self.consumeTime++;
             self.leftTime = self.totalTime - self.consumeTime;
-            [[NSNotificationCenter defaultCenter] postNotificationName:LZYSENDSMSLEDTTIMECHANGEDNOTICE object:@(self.leftTime) userInfo:nil];
+            self.isAllowRequestSMS = NO;
             if (self.leftTime <= 0 || self.consumeTime >= self.totalTime) {
                 self.leftTime = self.totalTime;
                 self.consumeTime = 0;
+                self.isAllowRequestSMS = YES;
                 [[NSNotificationCenter defaultCenter] postNotificationName:LZYSENDSMSLEFTTIMEZERONOTIVE object:nil userInfo:nil];
                 return ;
+            }else{
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:LZYSENDSMSLEDTTIMECHANGEDNOTICE object:@(self.leftTime) userInfo:nil];
             }
         
         }
@@ -70,6 +75,8 @@
     });
 
 }
+
+
 
 
 @end

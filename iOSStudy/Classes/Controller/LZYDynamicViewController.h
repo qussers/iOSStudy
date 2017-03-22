@@ -8,6 +8,6 @@
 
 #import "LZYBaseViewController.h"
 
-@interface LZYDynamicViewController : LZYBaseViewController
+@interface LZYDynamicViewController : UIViewController
 
 @end

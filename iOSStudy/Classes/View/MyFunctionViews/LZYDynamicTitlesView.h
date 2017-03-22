@@ -29,9 +29,7 @@
 @end
 
 
-
 @protocol LZYDynamicTitlesViewDelegate <NSObject>
-
 
 //点击了对应标题
 - (void)dynamicTitleView:(LZYDynamicTitlesView *)dynamicTitleView didSelected:(NSInteger)index;
@@ -44,6 +42,9 @@
 
 @property (nonatomic, weak) id<LZYDynamicTitlesViewDelegate> delegate;
 
+
+
+- (void)scrollToIndex:(NSInteger)index;
 
 - (void)hasNewNotificationViewIndex:(NSInteger)index;
 

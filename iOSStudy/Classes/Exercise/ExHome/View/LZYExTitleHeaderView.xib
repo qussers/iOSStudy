@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LZYExTitleHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6l-Rg-mC9">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="egy-K9-LZm"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IzW-MU-9Cr">
+                    <rect key="frame" x="40" y="11" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2R-eR-Tc9">
+                    <rect key="frame" x="40" y="43" width="335" height="1"/>
+                    <color key="backgroundColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="8hE-1Z-71f"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-b5-5LP">
+                    <rect key="frame" x="0.0" y="0.0" width="40" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2g-Kx-Csf">
+                            <rect key="frame" x="12" y="11" width="16" height="22"/>
+                            <state key="normal" image="向下"/>
+                            <state key="selected" image="向上"/>
+                            <connections>
+                                <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="beX-NC-maZ"/>
+                            </connections>
+                        </button>
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omQ-tA-MGf">
+                            <rect key="frame" x="20" y="33" width="1" height="11"/>
+                            <color key="backgroundColor" red="0.10467930540000001" green="0.81552555859999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="9Bb-fI-SiP"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="omQ-tA-MGf" firstAttribute="centerX" secondItem="JX2-b5-5LP" secondAttribute="centerX" id="AZb-L0-hIU"/>
+                        <constraint firstItem="omQ-tA-MGf" firstAttribute="top" secondItem="JX2-b5-5LP" secondAttribute="top" constant="33" id="BiS-qa-cfB"/>
+                        <constraint firstItem="U2g-Kx-Csf" firstAttribute="centerX" secondItem="JX2-b5-5LP" secondAttribute="centerX" id="CdH-P1-TtX"/>
+                        <constraint firstItem="U2g-Kx-Csf" firstAttribute="centerY" secondItem="JX2-b5-5LP" secondAttribute="centerY" id="I8c-6s-i8X"/>
+                        <constraint firstAttribute="bottom" secondItem="omQ-tA-MGf" secondAttribute="bottom" id="Oc5-vV-3bJ"/>
+                        <constraint firstAttribute="width" constant="40" id="QQl-aR-pwL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="JX2-b5-5LP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="55Q-uF-qEq"/>
+                <constraint firstAttribute="trailing" secondItem="q2R-eR-Tc9" secondAttribute="trailing" id="5Gl-jI-op6"/>
+                <constraint firstItem="IzW-MU-9Cr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="DwN-GP-Pfx"/>
+                <constraint firstItem="D6l-Rg-mC9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ER7-8d-Chd"/>
+                <constraint firstItem="q2R-eR-Tc9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="GVx-2I-oWo"/>
+                <constraint firstAttribute="trailing" secondItem="D6l-Rg-mC9" secondAttribute="trailing" id="IAV-Lg-NdI"/>
+                <constraint firstItem="IzW-MU-9Cr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="OPG-v5-qnt"/>
+                <constraint firstAttribute="bottom" secondItem="D6l-Rg-mC9" secondAttribute="bottom" id="VAY-Ls-LLB"/>
+                <constraint firstItem="JX2-b5-5LP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XPk-gO-Yuy"/>
+                <constraint firstAttribute="bottom" secondItem="JX2-b5-5LP" secondAttribute="bottom" id="jPr-mX-K3f"/>
+                <constraint firstItem="D6l-Rg-mC9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="olo-0n-Hsn"/>
+                <constraint firstAttribute="bottom" secondItem="q2R-eR-Tc9" secondAttribute="bottom" id="x1y-ft-k7l"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomLineView" destination="q2R-eR-Tc9" id="eXZ-vV-TtP"/>
+                <outlet property="indicateBtn" destination="U2g-Kx-Csf" id="Ceh-Bx-JQp"/>
+                <outlet property="titleLabel" destination="IzW-MU-9Cr" id="Lcf-z3-U9y"/>
+                <outlet property="titleMidLineView" destination="omQ-tA-MGf" id="fFs-rt-A2K"/>
+            </connections>
+            <point key="canvasLocation" x="7.5" y="264"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="向上" width="16" height="16"/>
+        <image name="向下" width="16" height="16"/>
+    </resources>
+</document>

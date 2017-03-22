@@ -6,12 +6,8 @@
 //  Copyright © 2017年 izijia. All rights reserved.
 //
 
-#import "LZYBaseViewController.h"
+#import "LZYBaseWebViewController.h"
 
-
-
-@interface LZYSubjectContentViewController : LZYBaseViewController
-
-@property (nonatomic, copy) NSString *webUrl;
+@interface LZYSubjectContentViewController : LZYBaseWebViewController
 
 @end

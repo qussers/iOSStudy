@@ -15,16 +15,16 @@
 + (instancetype)defaultSMSTimeManager;
 
 //是否允许发送验证码
-@property (nonatomic, assign) BOOL isAllowRequestSMS;
+@property (atomic, assign) BOOL isAllowRequestSMS;
 
 //计时剩余时间
-@property (nonatomic, assign) NSInteger leftTime;
+@property (atomic, assign) NSInteger leftTime;
 
 //计时消耗
-@property (nonatomic, assign) NSInteger consumeTime;
+@property (atomic, assign) NSInteger consumeTime;
 
 //默认60秒
-@property (nonatomic, assign) NSInteger totalTime;
+@property (atomic, assign) NSInteger totalTime;
 
 //发送验证码
 - (void)sendSMSStart;

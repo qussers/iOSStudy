@@ -13,9 +13,10 @@
 #import "LZYPDFReaderViewController.h"
 #import "AddFileViewController.h"
 #import "LZYLoginViewController.h"
-#import "LZYUserModel.h"
 #import "UIImageView+LZYWebCache.h"
 #import "LZYSettingTableViewController.h"
+#import "LZYUserSaveTableViewController.h"
+#import <BmobSDK/Bmob.h>
 #define LZYPersonViewHeadHeight 150 * LZYSCREEN_WIDTH / 375.0
 
 @interface LZYPersonViewController ()<LZYPersonBackgroundViewDelegate>
@@ -44,7 +45,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     
     if (!_headBackView) {
         [self makeBackgroundAttribute];
@@ -109,10 +109,11 @@
 
 - (void)makeUserInfoAttribute
 {
-    LZYUserModel *user = (LZYUserModel *) [LZYUserModel getCurrentUser];
+    BmobUser *user = [BmobUser currentUser];
+   
     if (user) {
         [self.navigationItem.rightBarButtonItem setEnabled:YES];
-        [self.headBackView.iconImageView lzy_setImageWithURL:user.userIcon ?:LZYDEFAULTICONURL];
+        [self.headBackView.iconImageView lzy_setImageWithURL: [user objectForKey:@"userIcon"] ?:LZYDEFAULTICONURL];
         [self.headBackView.loginLabel setHidden:YES];
         [self.headBackView.userNameLabel setHidden:NO];
         self.headBackView.userNameLabel.text = user.username;
@@ -197,14 +198,23 @@
             [self.navigationController pushViewController:v animated:YES];
         }
             break;
+            
+        //WIFIUpload
         case 2:
         {
-            //WIFIUpload
             AddFileViewController *v = [[AddFileViewController alloc] init];
             [self.navigationController pushViewController:v animated:YES];
         }
             break;
             
+            
+        //我的保存
+        case 3:
+        {
+            LZYUserSaveTableViewController *userSaveVc = [storyboard instantiateViewControllerWithIdentifier:@"LZYUserSaveTableViewController"];
+            [self.navigationController pushViewController:userSaveVc animated:YES];
+        }
+            break;
         default:
             break;
     }
@@ -223,7 +233,7 @@
 
 - (void)iconViewClick
 {
-    if (![LZYUserModel getCurrentUser]) {
+    if (![BmobUser currentUser]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //        LZYLoginViewController *v = [storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
 //        [self presentViewController:v animated:YES completion:nil];

@@ -7,52 +7,39 @@
 //
 
 #import "LZYDynamicViewController.h"
-#import "LZYGlobalDefine.h"
-#import "LZYDynamicTitlesView.h"
-#import "LZYInviteJobViewController.h"
-#import "LZYInterviewViewController.h"
+#import "LZYNearChatViewController.h"
+#import "LZYFunctionViewController.h"
 
-//编辑页面
+//编辑面试经验页面
 #import "LZYEditInterviewViewController.h"
 
-#define LZYDynamicTitles @[@"面试",@"求助",@"招聘",@"吐槽"]
-@interface LZYDynamicViewController ()<LZYDynamicTitlesViewDelegate,UIScrollViewDelegate>
-
-//标题视图
-@property (nonatomic, strong) LZYDynamicTitlesView *dynamicTitleView;
-
-//区域视图
-@property (nonatomic, strong) UIScrollView *contentScrollView;
-
-//模块数量
-@property (nonatomic, assign) NSInteger subCount;
+//编辑招聘信息页面
+#import "LZYEditInviteJobViewController.h"
 
 
-@property (nonatomic, strong) LZYInviteJobViewController *inviteJobViewController;
+@interface LZYDynamicViewController ()
 
-@property (nonatomic, strong) LZYInterviewViewController *interviewController;
+//最近下次列表
+@property (nonatomic, strong) LZYNearChatViewController *nearViewController;
 
+@property (nonatomic, strong) LZYFunctionViewController *functionViewController;
 
 @end
 
 @implementation LZYDynamicViewController
 
-CGFloat dynamicHeight = 30;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self setup];
-    [self createContentView];
-    [self createSubControllers];
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 //针对首页视图显示和隐藏tabbar设置
 - (void)viewDidAppear:(BOOL)animated
@@ -66,67 +53,129 @@ CGFloat dynamicHeight = 30;
 {
     [super viewDidDisappear:animated];
     self.hidesBottomBarWhenPushed = NO;
-    
 }
+
+
 
 - (void)setup
 {
-    self.subCount = [LZYDynamicTitles count];
     self.automaticallyAdjustsScrollViewInsets = NO;
-}
-- (void)createContentView
-{
-    //创建标题栏
-    _dynamicTitleView = [[LZYDynamicTitlesView alloc] initWithFrame:CGRectMake(0, 64, LZYSCREEN_WIDTH, dynamicHeight)];
-    _dynamicTitleView.delegate = self;
-    _dynamicTitleView.titles = LZYDynamicTitles;
-    [self.view addSubview:_dynamicTitleView];
-    
-    //创建滚动视图
-    _contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, dynamicHeight + 64, LZYSCREEN_WIDTH, LZYSCREEN_HEIGHT - 64)];
-    _contentScrollView.contentSize = CGSizeMake(LZYSCREEN_WIDTH * self.subCount, _contentScrollView.frame.size.height);
-    _contentScrollView.showsVerticalScrollIndicator = NO;
-    _contentScrollView.showsHorizontalScrollIndicator = NO;
-    _contentScrollView.bounces = YES;
-    _contentScrollView.pagingEnabled = YES;
-    _contentScrollView.delegate = self;
-    [self.view addSubview:_contentScrollView];
-}
-
-- (void)createSubControllers
-{
-    
-    UIStoryboard *storyboard  = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    //招聘
-    _inviteJobViewController = [storyboard instantiateViewControllerWithIdentifier:@"inviteJobViewController"];
-    [self addChildViewController:_inviteJobViewController];
-    _inviteJobViewController.view.frame = CGRectMake(0, 0, LZYSCREEN_WIDTH, self.contentScrollView.frame.size.height);
-    [self.contentScrollView addSubview:self.inviteJobViewController.view];
-    
-    //面试
-    _interviewController = [storyboard instantiateViewControllerWithIdentifier:@"interviewController"];
-    [self addChildViewController:_interviewController];
-    _interviewController.view.frame = CGRectMake(LZYSCREEN_WIDTH, 0, LZYSCREEN_WIDTH, self.contentScrollView.frame.size.height);
-
-    [self.contentScrollView addSubview:self.interviewController.view];
-    
-}
-
-#pragma mark - LZYDynamicTitlesViewDelegate
-- (void)dynamicTitleView:(LZYDynamicTitlesView *)dynamicTitleView didSelected:(NSInteger)index
-{
-    NSLog(@"%ld",index);
+    [self addChildViewController:self.functionViewController];
+    [self addChildViewController:self.nearViewController];
+    self.functionViewController.view.frame = self.view.bounds;
+    self.nearViewController.view.frame = CGRectMake(0, 64, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 64);
+    [self.view addSubview:self.functionViewController.view];
 }
 
 
 - (IBAction)editButtonClick:(id)sender {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LZYEditInterviewViewController *v = [storyboard instantiateViewControllerWithIdentifier:@"editInterviewController"];
-    [self.navigationController pushViewController:v animated:YES];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请选择编辑类型" message:nil preferredStyle: UIAlertControllerStyleActionSheet];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"求助" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UINavigationController *nav = [storyboard instantiateViewControllerWithIdentifier:@"editHelpNavController"];
+        [self presentViewController:nav animated:YES completion:nil];
+    }]];
+    
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+        NSLog(@"点击了娱乐");
+    }]];
+    
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"面试" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        LZYEditInterviewViewController *v = [storyboard instantiateViewControllerWithIdentifier:@"editInterviewController"];
+        [self.navigationController pushViewController:v animated:YES];
+    }]];
+    
+
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"招聘" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+        UINavigationController *v = [storyboard instantiateViewControllerWithIdentifier:@"editInviteJobNavController"];
+        [self presentViewController:v animated:YES completion:nil];
+    }]];
+    
+
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+        NSLog(@"点击了取消");
+    }]];
+    
+    
+    //弹出提示框；
+    [self presentViewController:alert animated:true completion:nil];
+    
+
+
     
 }
 
+- (IBAction)segmentClick:(UISegmentedControl *)sender {
+    
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+        {
+            [self changeToFunctionView];
+        }
+            break;
+        case 1:
+        {
+            [self changeToChatView];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    
+}
 
+- (void)changeToFunctionView
+{
+    [self.nearViewController.view removeFromSuperview];
+    
+    if (![self.view.subviews containsObject:self.functionViewController.view]) {
+        [self.view addSubview:self.functionViewController.view];
+    }
+    
+     [self.view bringSubviewToFront:self.functionViewController.view];
+}
+
+- (void)changeToChatView
+{
+    
+    [self.functionViewController.view removeFromSuperview];
+
+    if (![self.view.subviews containsObject:self.nearViewController.view]) {
+        [self.view addSubview:self.nearViewController.view];
+    }
+    
+    [self.view bringSubviewToFront:self.nearViewController.view];
+
+}
+
+
+#pragma mark - lazy
+
+- (LZYNearChatViewController *)nearViewController
+{
+    if (!_nearViewController) {
+        _nearViewController = [[LZYNearChatViewController alloc] init];
+    }
+    return _nearViewController;
+}
+
+- (LZYFunctionViewController *)functionViewController
+{
+    if (!_functionViewController) {
+        _functionViewController = [[LZYFunctionViewController alloc] init];
+    }
+    return _functionViewController;
+}
 
 @end

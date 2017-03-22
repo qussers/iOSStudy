@@ -8,14 +8,28 @@
 
 #import <BmobSDK/Bmob.h>
 
-@interface LZYInviteJobModel : BmobObject
+@interface LZYInviteJobModel :BmobObject
 
+//
+@property (nonatomic, copy) NSString *userName;
+
+@property (nonatomic, copy) NSString *userId;
+
+@property (nonatomic, copy) NSString *userIcon;
+
+
+//
+@property (nonatomic, strong) BmobUser *user;
 
 //公司所属城市
 @property (nonatomic, copy) NSString *cityName;
 
 //公司城区
 @property (nonatomic, copy) NSString *townName;
+
+@property (nonatomic, copy) NSString *address;
+
+@property (nonatomic, copy) NSString *email;
 
 //公司名称
 @property (nonatomic, copy) NSString *companyName;
@@ -26,14 +40,8 @@
 //职位工作经验要求
 @property (nonatomic, copy) NSString *experience;
 
-//招聘发布人姓名
-@property (nonatomic, copy) NSString *inviteName;
-
 //招聘发布人职位
 @property (nonatomic, copy) NSString *invitePosition;
-
-//招聘发布人id
-@property (nonatomic, copy) NSString *inviteUserId;
 
 //职位标题
 @property (nonatomic, copy) NSString *jobTitle;
@@ -43,5 +51,15 @@
 
 //学历
 @property (nonatomic, copy) NSString *academic;
+
+//岗位职责
+@property (nonatomic, copy) NSString *duty;
+
+//任职要求
+@property (nonatomic, copy) NSString *demand;
+
+//福利待遇标签
+@property (nonatomic, strong) NSArray *tags;
+
 
 @end

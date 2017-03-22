@@ -12,7 +12,7 @@
 
 + (UIView *)loadViewWithXibName:(NSString *)name
 {
-    return [[[NSBundle mainBundle] loadNibNamed:name owner:nil options:nil] lastObject];
+    return [[[NSBundle mainBundle] loadNibNamed:name owner:self options:nil] lastObject];
 }
 
 @end

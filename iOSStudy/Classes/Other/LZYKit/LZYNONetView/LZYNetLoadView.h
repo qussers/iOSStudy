@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, networkLoadType) {
+    
     kLoading,
     kNetworkError,
     kLoadNone,
+    
 };
 
 @interface LZYNetLoadView : UIView
@@ -19,7 +21,6 @@ typedef NS_ENUM(NSInteger, networkLoadType) {
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @property (nonatomic, assign) networkLoadType loadType;
-
 
 @property (nonatomic, assign) UITableViewCellSeparatorStyle tableViewCellSeparatorStyle;
 

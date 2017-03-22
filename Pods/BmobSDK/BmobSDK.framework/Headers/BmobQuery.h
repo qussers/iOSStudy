@@ -193,7 +193,7 @@
  *
  *  @param keys 多个列组成的数组
  */
--(void)whereKeySExists:(NSArray *)keys;
+-(void)whereKeysExists:(NSArray *)keys;
 
 
 /**
@@ -266,7 +266,7 @@
 /**
  * 设置需要分组的列名数组
  *
- * @param key 需要计算进行分组的列名称数组
+ * @param keys 需要计算进行分组的列名称数组
  */
 -(void)groupbyKeys:(NSArray*)keys;
 
@@ -309,7 +309,7 @@
  *
  *	@param	key	键
  *	@param	geopoint	位置信息
- *	@param	maxDistance	最大半径
+ *	@param	maxDistance	最大半径 (单位:弧度)
  */
 -(void)whereKey:(NSString *)key nearGeoPoint:(BmobGeoPoint *)geopoint withinRadians:(double)maxDistance;
 
@@ -357,18 +357,18 @@
 - (void)orOperation;
 
 /**
- *  构造查询条件,一旦设置，查询的条件即为conDictionary
+ *  构造查询条件,一旦设置，查询的条件即为condition
  *
- *  @param conDictionary 构造查询条件
+ *  @param condition 构造查询条件
  */
--(void)queryWithAllConstraint:(NSDictionary*)conDictionary;
+-(void)queryWithAllConstraint:(NSDictionary*)condition;
 
 /**
  *  构造查询条件，可以与其他方法同时存在
  *
- *  @param dictionary 查询条件
+ *  @param condition 查询条件
  */
--(void)queryWithConstraint:(NSDictionary *)dictionary;
+-(void)queryWithConstraint:(NSDictionary *)condition;
 
 #pragma mark 缓存方面的函数
 
@@ -479,7 +479,7 @@
 /**
  *  取消查询
  */
--(void)cancle;
+-(void)cancel;
 
 # pragma mark 模糊查询
 /**

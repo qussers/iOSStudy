@@ -169,7 +169,6 @@ CGFloat redPointWidth = 3;
     }];
 }
 
-
 - (void)hasNewNotificationViewIndex:(NSInteger)index
 {
     LZYDynamicSubTitleView *v = self.titleViews[index];
@@ -181,6 +180,15 @@ CGFloat redPointWidth = 3;
     LZYDynamicSubTitleView *v = self.titleViews[index];
     [v removeNotification];
 }
+
+
+- (void)scrollToIndex:(NSInteger)index
+{
+
+    LZYDynamicSubTitleView *view = self.titleViews[index];
+    view.dynamicSubTitleDidClick(view);
+}
+
 
 #pragma mark - lazy
 

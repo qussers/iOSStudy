@@ -10,31 +10,25 @@
 
 @interface LZYInterviewModel : BmobObject
 
-
 @property (nonatomic, copy) NSString *jobTitle;
-
 
 @property (nonatomic, copy) NSString *companyName;
 
-
 @property (nonatomic, strong) NSArray *tagArr;
-
 
 @property (nonatomic, assign) NSInteger likes;
 
-
 @property (nonatomic, copy) NSString *interviewContent;
-
-
-@property (nonatomic, copy) NSString *interviewUserName;
-
 
 @property (nonatomic, assign) NSInteger commentCount;
 
+@property (nonatomic, copy) NSString *userName;
 
-@property (nonatomic, copy) NSString *interviewUserId;
+@property (nonatomic, copy) NSString *userId;
 
+@property (nonatomic, copy) NSString *userIcon;
 
+@property (nonatomic, strong) BmobUser *user;
 
 @property (nonatomic, assign) CGFloat cellHeight;
 

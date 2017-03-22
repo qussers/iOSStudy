@@ -7,7 +7,7 @@
 //
 
 #import "LZYSettingTableViewController.h"
-#import "LZYUserModel.h"
+#import <BmobSDK/Bmob.h>
 @interface LZYSettingTableViewController ()
 
 @end
@@ -28,8 +28,8 @@
 
 
 - (IBAction)logoutClick:(id)sender {
-    if ([LZYUserModel getCurrentUser]) {
-        [LZYUserModel logout];
+    if ([BmobUser currentUser]) {
+        [BmobUser logout];
         [self.navigationController popViewControllerAnimated:YES];
     }
     

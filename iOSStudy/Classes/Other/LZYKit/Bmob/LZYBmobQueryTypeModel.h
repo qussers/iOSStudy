@@ -14,12 +14,13 @@ typedef  NS_ENUM(NSInteger, queryType) {
     kLessThan,
     kLessThanOrEqual,
     kGreater,
-    kGreaterThanOrEqual
+    kGreaterThanOrEqual,
+    kIncludeKey
 };
 
 @interface LZYBmobQueryTypeModel : NSObject
 
-//查询的表名
+//字段名
 @property (nonatomic, copy) NSString *queryKeyName;
 
 //查询的条件方式

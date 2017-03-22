@@ -7,21 +7,37 @@
 //
 
 #import "LZYForgetPasswordTableViewController.h"
+#import "LZYNetwork.h"
+#import "MBProgressHUD+LZYAdd.h"
+#import "LZYSMSTimerManager.h"
+#import "LZYBmobSMSModel.h"
+#import "UITextField+LZYAdd.h"
+#import "LZYResetPasswordTableViewController.h"
+@interface LZYForgetPasswordTableViewController ()<UITextFieldDelegate>
 
-@interface LZYForgetPasswordTableViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *mobilePhoneNumberTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *smsTextField;
+
+@property (weak, nonatomic) IBOutlet UIButton *smsButton;
+
+//验证码验证是否成功
+@property (atomic, assign) BOOL isVerifityOk;
 
 @end
 
 @implementation LZYForgetPasswordTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.tableView.tableFooterView = [UIView new];
+    //验证码通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(smsLeftTimeNotice:) name:LZYSENDSMSLEDTTIMECHANGEDNOTICE object:nil];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(smsEndNotice:) name:LZYSENDSMSLEFTTIMEZERONOTIVE object:nil];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,70 +45,85 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
     
-    // Configure the cell...
+    [self.mobilePhoneNumberTextField resignFirstResponder];
+    [self.smsTextField resignFirstResponder];
+}
+
+
+- (IBAction)smsButtonClick:(id)sender {
     
-    return cell;
+    if (![self.mobilePhoneNumberTextField filterMobilePhoneNumber]) {
+        return;
+    }
+    
+    if([LZYSMSTimerManager defaultSMSTimeManager].isAllowRequestSMS){
+        LZYBmobSMSModel *smsModel = [[LZYBmobSMSModel alloc] init];
+        smsModel.type = kSMSforgetPassword;
+        [LZYNetwork requestSMSWithMobilePhoneNumber:self.mobilePhoneNumberTextField.text SMSModel:smsModel success:^(NSInteger msgId) {
+            [[LZYSMSTimerManager defaultSMSTimeManager] sendSMSStart];
+        } failure:^(id result) {
+            [MBProgressHUD showError:@"验证码发送失败"];
+        }];
+    }
+    [[LZYSMSTimerManager defaultSMSTimeManager] sendSMSStart];
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)smsLeftTimeNotice:(NSNotification *)notification
+{
+    //主线程刷新
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSInteger leftTime = [[notification object] integerValue];
+        [self.smsButton setTitle:[NSString stringWithFormat:@"已发送(%ld)",leftTime] forState:UIControlStateNormal];
+    });
+    
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)smsEndNotice:(NSNotification *)notification
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.smsButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+    });
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+
+- (IBAction)nextItemClick:(UIBarButtonItem *)sender {
+
+    if (!self.isVerifityOk) {
+        
+        [MBProgressHUD showError:@"输入信息有误"];
+        return;
+    }
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LZYResetPasswordTableViewController *v = [storyboard instantiateViewControllerWithIdentifier:@"resetPasswordController"];
+    v.smsCode = self.smsTextField.text;
+    [self.navigationController pushViewController:v animated:YES];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+
+- (IBAction)editChange:(UITextField *)sender {
+    
+    if (self.mobilePhoneNumberTextField.text.length <= 10) {
+        return;
+    }
+    [LZYNetwork verfitySMSWithMobilePhoneNumber:self.mobilePhoneNumberTextField.text SMSCode:self.smsTextField.text result:^(BOOL isSuccess, id error) {
+        self.isVerifityOk = isSuccess;
+    }];
 }
-*/
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 析构
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+
 }
-*/
 
 @end

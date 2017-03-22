@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CTAssetsPickerController-CTAssetsPickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CTAssetsPickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CocoaAsyncSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,7 +34,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iOSStudy.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ReactiveObjC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,35 +59,70 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>113688EB1C1EBFE46C08F01160EC5F12</key>
+		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1A8356BEA0A5841D3D7014234DA6D9F1</key>
+		<key>175B076ED45EB1A3E40F58BA14036467</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>29A5EC86087C08DC1B5CD3B84F7683A5</key>
+		<key>20A0C22701BF6237076556C96058746B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4424E6F7ADE065DA930E4341E947EAC2</key>
+		<key>33D1DC9454D60F093149BC53DE44796C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ECFE0958DDB7FEC79B3AA1C9337BC941</key>
+		<key>3FA99E3A5BCEBF30E65AF7E25F7D0795</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
+		<key>4AA9432EBBBEF45956F4F46621779CF2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7B77450360CED2550079D64F0AC60ADD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7DB600BD44352C33ACCE8F1759C0562B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A95BB17C6D89BAB000F7D30C9960A6D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C92FE3681884E565A5AB3C622863B4C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E8FBAB4723C6E41DC74C7005DD429DBE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F98D5F79CC400A635A83AE974E6D0359</key>
 		<dict>
 			<key>primary</key>
 			<true/>

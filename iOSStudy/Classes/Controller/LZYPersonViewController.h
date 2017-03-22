@@ -8,6 +8,6 @@
 
 #import "LZYBaseTableViewController.h"
 
-@interface LZYPersonViewController : LZYBaseTableViewController
+@interface LZYPersonViewController : UITableViewController
 
 @end

@@ -11,11 +11,7 @@
 #import "UIView+Xib.h"
 static NSString *loadViewKey = @"loadViewKey";
 
-
-
 @implementation UIView (newLoadView)
-
-
 
 - (void)beginLoading
 {
@@ -58,6 +54,10 @@ static NSString *loadViewKey = @"loadViewKey";
     if (self.loadView) {
         self.loadView.loadType = kNetworkError;
     }
+    else{
+        [self beginLoading];
+        [self loadError];
+    }
 }
 
 - (void)loadNone
@@ -67,7 +67,10 @@ static NSString *loadViewKey = @"loadViewKey";
     }
 }
 
+
+
 #pragma mark - setter&& getter
+
 - (void)setLoadView:(LZYNetLoadView *)loadView
 {
     [self willChangeValueForKey:@"loadViewKey"];

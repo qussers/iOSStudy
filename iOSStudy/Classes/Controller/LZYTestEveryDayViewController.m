@@ -9,6 +9,7 @@
 #import "LZYTestEveryDayViewController.h"
 #import "UIView+Xib.h"
 #import "LZYCardPageView.h"
+
 @interface LZYTestEveryDayViewController ()<LZYCardPushViewDataSource>
 
 @end

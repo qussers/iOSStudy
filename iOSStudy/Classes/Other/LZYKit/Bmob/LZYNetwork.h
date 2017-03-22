@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "LZYBmobSMSModel.h"
+#import "LZYBmobQueryTypeModel.h"
 
 @interface LZYNetwork : NSObject
 
@@ -34,16 +35,29 @@
                                     success:(void(^)(NSArray *result))success
                                     failure:(void(^)(id result))failure;
 
-//获取招聘信息详情
-+ (void)requestInviteJobWithTableName:(NSString *)name
-                              success:(void(^)(NSArray *result))success
-                              failure:(void(^)(id result))failure;
 
 
-//获取面试信息详情
-+ (void)requestInterviewWithTableName:(NSString *)name
-                              success:(void(^)(NSArray *result))success
-                              failure:(void(^)(id result))failure;
+
+//根据模型名称 获取对应数据表
++ (void)requestObjectModelWithTableName:(Class)classObj
+                                success:(void(^)(NSArray *result))success
+                                failure:(void(^)(id result))failure;
+
+//根据模型名称 获取对应数据表 加条件
++ (void)requestObjectModelWithTableName:(Class)classObj
+                             conditions:(NSArray *)conditions
+                                success:(void(^)(NSArray *result))success
+                                failure:(void(^)(id result))failure;
+
+
+
+
+
+
+
+
+
+#pragma mark - 登录信息
 
 //用户登录 账户+密码
 + (void)loginWithAccount:(NSString *)account
@@ -77,5 +91,27 @@
                                SMSModel:(LZYBmobSMSModel *)smsModel
                                 success:(void(^)(NSInteger msgId))success
                                 failure:(void(^)(id result))failure;
+
+//验证验证码是否合法
++ (void)verfitySMSWithMobilePhoneNumber:(NSString *)mobilePhoneNumber
+                                SMSCode:(NSString *)smsCode
+                                result:(void(^)(BOOL isSuccess, id error))result;
+
+//重置密码
++ (void)resetPasswordWithMobilePhoneNumber:(NSString *)mobilePhoneNumber
+                                   SMSCode:(NSString *)smsCode
+                               newPassword:(NSString *)password
+                                    result:(void(^)(BOOL isSuccess, id error))result;
+
+
+#pragma mark - 上传文件
++ (void)uploadImages:(NSArray *)images
+       progressBlock:(void(^)(int index, float progress))progressBlock
+              result:(void(^)(NSArray *array, BOOL isSuccessfule, NSError *error))block;
+
+
+#pragma mark - 云端逻辑
++ (void)requestCloudAPI:(NSString *)apiName paramerters:(NSDictionary *)parameters block:(void(^)(id result, NSError *error))result;
+
 
 @end

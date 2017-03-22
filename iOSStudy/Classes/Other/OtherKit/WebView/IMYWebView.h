@@ -30,10 +30,13 @@
 
 ///内部使用的webView
 @property (nonatomic, readonly) id realWebView;
+
 ///是否正在使用 UIWebView
 @property (nonatomic, readonly) BOOL usingUIWebView;
+
 ///预估网页加载进度
 @property (nonatomic, readonly) double estimatedProgress;
+
 
 @property (nonatomic, readonly) NSURLRequest *originRequest;
 
@@ -48,6 +51,7 @@
 
 ///back 层数
 - (NSInteger)countOfHistory;
+
 - (void)gobackWithStep:(NSInteger)step;
 
 ///---- UI 或者 WK 的API

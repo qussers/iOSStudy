@@ -24,11 +24,9 @@
 
 @implementation LZYCardPushView
 
-CGFloat firstCardViewGap = 15;
 CGFloat cardGap = 8;
+CGFloat firstCardViewGap = 15;
 NSInteger defaultPageNumber = 3;
-
-
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

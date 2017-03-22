@@ -12,10 +12,9 @@
 
 @property (nonatomic, strong) LZYNetLoadView *loadView;
 
-
-
 - (void)beginLoading;
 - (void)endLoading;
 - (void)loadError;
 - (void)loadNone;
+
 @end

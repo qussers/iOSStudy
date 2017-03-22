@@ -12,6 +12,9 @@
 #import "UIView+NetLoadView.h"
 #import "LZYInterviewTableViewCell.h"
 #import "LZYGlobalDefine.h"
+
+#import "LZYCommentViewController.h"
+
 @interface LZYInterviewViewController ()
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
@@ -33,24 +36,83 @@
 }
 
 
+- (void)setUp
+{
+    self.hasFooter = YES;
+    self.hasHeader = YES;
+    
+    [super setUp];
+}
+
 - (void)requestData
 {
     [self.tableView beginLoading];
-    [LZYNetwork requestInterviewWithTableName:nil success:^(NSArray *result) {
-        [self addHeightToCellModel:result];
-        self.dataSource.array = result;
-        //计算
-        [self.tableView reloadData];
-        if (result.count > 0) {
-            [self.tableView endLoading];
-        }else{
-            [self.tableView loadNone];
-        }
+    [LZYNetwork requestObjectModelWithTableName:[LZYInterviewModel class] success:^(NSArray *result) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self addHeightToCellModel:result];
+            self.dataSource.array = result;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //计算
+                [self.tableView reloadData];
+                if (result.count > 0) {
+                    [self.tableView endLoading];
+                }else{
+                    [self.tableView loadNone];
+                }
+            });
+        });
     } failure:^(id result) {
         
         [self.tableView loadError];
     }];
 }
+
+- (void)refreshData
+{
+    [super refreshData];
+    [LZYNetwork requestObjectModelWithTableName:[LZYInterviewModel class] success:^(NSArray *result) {
+        [self endRefreshData];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self addHeightToCellModel:result];
+        self.dataSource.array = result;
+        //计算
+        [self tableviewRefresh];
+        });
+    } failure:^(id result) {
+        [self endRefreshData];
+        
+    }];
+}
+
+- (void)loadMoreData
+{
+    [super loadMoreData];
+    LZYInterviewModel *model = self.dataSource.lastObject;
+    LZYBmobQueryTypeModel *queryModel = [[LZYBmobQueryTypeModel alloc] init];
+    queryModel.queryValue = model.updatedAt;
+    queryModel.queryKeyName = @"updatedAt";
+    queryModel.type = kLessThan;
+    [LZYNetwork requestObjectModelWithTableName:[LZYInterviewModel class] conditions:@[queryModel] success:^(NSArray *result) {
+
+            if (result.count == 0) {
+                [self noMoreData];
+                return;
+            }
+            [self endLoadMoreData];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self addHeightToCellModel:result];
+            [self.dataSource addObjectsFromArray:result];
+            [self tableviewRefresh];
+            });
+
+    } failure:^(id result) {
+        [self endLoadMoreData];
+        
+    }];
+
+
+}
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -87,6 +149,17 @@
     
     return model.cellHeight;
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO];
+    LZYCommentViewController *v = [[LZYCommentViewController alloc] init];
+    [self.navigationController pushViewController:v animated:YES];
+}
+
+
 - (void)configeCell:(LZYInterviewTableViewCell *)cell model:(LZYInterviewModel *)model
 {
     if(!model.isWordBreak){
@@ -110,7 +183,7 @@
     }
     
     cell.timeLabel.text = [self.dateFormatter stringFromDate:model.createdAt];
-    cell.interviewUserName.text = model.interviewUserName;
+    cell.interviewUserName.text = model.userName;
     cell.companyNameLabel.text = model.companyName;
     cell.interviewContentLabel.text = [NSString stringWithFormat:@"面试过程:%@",model.interviewContent];
     cell.jobTitleLabel.text = model.jobTitle;

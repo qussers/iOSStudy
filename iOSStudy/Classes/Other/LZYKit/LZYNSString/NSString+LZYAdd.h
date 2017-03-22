@@ -14,4 +14,14 @@
 
 //根据文本计算所占区域
 - (CGSize)stringWithMaxSize:(CGSize)maxSize  fontSize:(CGFloat)fontSize;
+
+//根据HTML文本获取其中所有Image
+- (NSArray *)filterImage;
+
+//解析网页
+- (NSMutableArray *)parseToWebLink;
+
+
++ (NSString *)createUUID;
+
 @end

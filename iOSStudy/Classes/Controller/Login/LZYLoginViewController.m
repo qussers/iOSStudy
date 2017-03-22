@@ -9,11 +9,14 @@
 #import "LZYLoginViewController.h"
 #import "LZYGlobalDefine.h"
 #import "LZYNetwork.h"
-#import "LZYUserModel.h"
+
 #import "UIImage+LZYAdd.h"
+#import "UITextField+LZYAdd.h"
 #import "MBProgressHUD+LZYAdd.h"
 #import "LZYSMSTimerManager.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
+
+#import "LZYRongConnectHelper.h"
 @interface LZYLoginViewController ()<UIScrollViewDelegate>
 
 @end
@@ -22,15 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
      [self setNotification];
    
     self.automaticallyAdjustsScrollViewInsets = NO;
-   
     self.backgroundImageView.image = [self.backgroundImageView.image blurryImageWithLevel:0.08];
-    
-    
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    //登录成功
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismiss:) name:LZYNOTICE_LOGINSUCCESS  object:nil];
+    
+    
 }
 
 
@@ -38,6 +42,7 @@
 {
     
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.tableView setContentOffset:CGPointMake(0, 0)];
     
 }
 
@@ -84,11 +89,11 @@
 
 //点击验证码
 - (IBAction)verfityButtonClick:(UIButton *)sender {
-    if (self.accountTextField.text.length <= 0) {
-        [MBProgressHUD showError:@"账户不能为空"];
+    if (![self.accountTextField filterMobilePhoneNumber]) {
         return;
     }
-    if ([LZYSMSTimerManager defaultSMSTimeManager].leftTime == 0) {
+    
+    if ([LZYSMSTimerManager defaultSMSTimeManager].isAllowRequestSMS) {
         //发送验证码计时
         LZYBmobSMSModel *smsModel = [[LZYBmobSMSModel alloc] init];
         smsModel.type = kSMSLogin;
@@ -122,29 +127,27 @@
 
 - (IBAction)loginButtonClick:(id)sender {
 
-    if (![self filterInfo]) {
+    if (!([self.accountTextField filterMobilePhoneNumber] && [self.passwordTextField filterPassword])) {
         return;
     }
+    //账号密码登录
     if (self.vertifyButton.hidden) {
         [MBProgressHUD showMessage:@"登录中..."];
         [LZYNetwork loginWithAccount:self.accountTextField.text password:self.passwordTextField.text success:^(id user) {
-            [MBProgressHUD hideHUD];
-            if (user) {
-                [self dismiss:nil];
-            }
+            [LZYRongConnectHelper connectToRongCloud];
+             [MBProgressHUD hideHUD];
         } failure:^(id result) {
             [MBProgressHUD hideHUD];
             [MBProgressHUD showError:@"登录失败"];
         }];
     }
     else{
-    
+        //短信验证码注册或者登录
         [MBProgressHUD showMessage:@"登录中..."];
         [LZYNetwork registerAndLoginWithMobilePhoneNumber:self.accountTextField.text SMSCode:self.passwordTextField.text success:^(id user) {
+
+            [LZYRongConnectHelper connectToRongCloud];
             [MBProgressHUD hideHUD];
-            if (user) {
-                [self dismiss:nil];
-            }
         } failure:^(id result) {
             [MBProgressHUD hideHUD];
             [MBProgressHUD showError:@"登录失败"];
@@ -198,38 +201,13 @@
     
 }
 
-
-
 - (IBAction)dismiss:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
-//输入项过滤
-- (BOOL)filterInfo
-{
-    if (self.accountTextField.text.length <= 0 ) {
-        [MBProgressHUD showError:@"账户不能为空"];
-        return NO;
-    }
-    
-    
-    if (self.passwordTextField.text.length <= 0) {
-        
-        if (self.vertifyButton.hidden) {
-             [MBProgressHUD showError:@"密码不能为空"];
-        }
-        else{
-             [MBProgressHUD showError:@"验证码不能为空"];
-        }
-       
-        return NO;
-    }
-    
-    return YES;
-    
-}
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

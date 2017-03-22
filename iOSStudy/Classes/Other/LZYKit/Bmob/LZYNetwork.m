@@ -8,6 +8,7 @@
 
 #import "LZYNetwork.h"
 #import "LZYGlobalDefine.h"
+#import "NSString+LZYAdd.h"
 #import <BmobSDK/BmobQuery.h>
 #import <BmobSDK/BmobObject+Subclass.h>
 
@@ -23,11 +24,13 @@
 //面试信息表
 #import "LZYInterviewModel.h"
 
+//求助信息表
+#import "LZYHelpModel.h"
+
 //查询条件模型
 #import "LZYBmobQueryTypeModel.h"
 
-//用户模型
-#import "LZYUserModel.h"
+
 
 @implementation LZYNetwork
 
@@ -40,6 +43,12 @@
 {
     //网络检查
     BmobQuery   *bquery = [BmobQuery queryWithClassName:name];
+    
+    //默认时间降序
+    [bquery orderByDescending:@"updatedAt"];
+    
+    //默认会针对User做处理
+    [bquery includeKey:@"user"];
     
     if (conditions && conditions.count > 0) {
         
@@ -63,6 +72,9 @@
                     break;
                 case kGreaterThanOrEqual:
                     [bquery whereKey:model.queryKeyName greaterThanOrEqualTo:model.queryValue];
+                    break;
+                case kIncludeKey:
+                    [bquery includeKey:model.queryKeyName];
                     break;
                 default:
                     break;
@@ -90,7 +102,7 @@
                                 success(result);
                             } failure:^(id result) {
                                 failure(result);
-                            }];
+    }];
     
     
 }
@@ -127,6 +139,7 @@
                                     success:(void (^)(NSArray *))success
                                     failure:(void (^)(id))failure
 {
+ 
 
     if (!subjectTag) {
         return;
@@ -155,55 +168,54 @@
     
 }
 
-//获取招聘信息详情
-+ (void)requestInviteJobWithTableName:(NSString *)name
-                              success:(void(^)(NSArray *result))success
-                              failure:(void(^)(id result))failure
-{
-    if (!name) {
-        name = LZYBMOBINVITEJOB;
-    }
-    [self requestDataWithBMOBTableName:name success:^(id result) {
-        if ([result isKindOfClass:[NSArray class]]) {
-            NSMutableArray *mArr = @[].mutableCopy;
-            for (BmobObject *obj in result) {
-                LZYInviteJobModel *model = [[LZYInviteJobModel alloc] initFromBmobObject:obj];
 
-                [mArr addObject:model];
-            }
-            success(mArr);
-        }
-        
-    } failure:^(id result) {
-        failure(result);
-    }];
-}
-
-//获取面试信息详情
-+ (void)requestInterviewWithTableName:(NSString *)name
-                              success:(void(^)(NSArray *result))success
-                              failure:(void(^)(id result))failure
+//根据模型名称 获取对应数据表
++ (void)requestObjectModelWithTableName:(Class)classObj
+                                success:(void(^)(NSArray *result))success
+                                failure:(void(^)(id result))failure
 {
-    if (!name) {
-        name = LZYBMOBINTERVIEW;
-    }
-    [self requestDataWithBMOBTableName:name success:^(id result) {
-        if ([result isKindOfClass:[NSArray class]]) {
-            NSMutableArray *mArr = @[].mutableCopy;
-            for (BmobObject *obj in result) {
-                LZYInterviewModel *model = [[LZYInterviewModel alloc] initFromBmobObject:obj];
-                [mArr addObject:model];
-            }
-            success(mArr);
-        }
-        
-    } failure:^(id result) {
-        failure(result);
-    }];
+    NSString *tableName = NSStringFromClass(classObj);
     
+    [self requestDataWithBMOBTableName:tableName success:^(id result) {
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSMutableArray *mArr = @[].mutableCopy;
+            for (BmobObject *obj in result) {
+                id model = [[classObj alloc] initFromBmobObject:obj];
+                [mArr addObject:model];
+            }
+            success(mArr);
+        }
+        
+    } failure:^(id result) {
+        failure(result);
+    }];
+}
+
+//根据模型名称 获取对应数据表
++ (void)requestObjectModelWithTableName:(Class)classObj
+                             conditions:(NSArray *)conditions
+                                success:(void(^)(NSArray *result))success
+                                failure:(void(^)(id result))failure
+{
+    NSString *tableName = NSStringFromClass(classObj);
+    
+    [self requestDataWithBMOBTableName:tableName conditions:conditions success:^(id result) {
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSMutableArray *mArr = @[].mutableCopy;
+            for (BmobObject *obj in result) {
+                id model = [[classObj alloc] initFromBmobObject:obj];
+                [mArr addObject:model];
+            }
+            success(mArr);
+        }
+        
+    } failure:^(id result) {
+             failure(result);
+    }];
 }
 
 
+#pragma mark -登录相关
 //用户登录 账户+密码
 + (void)loginWithAccount:(NSString *)account
                 password:(NSString *)password
@@ -213,8 +225,7 @@
 
     [BmobUser loginWithUsernameInBackground:account password:password block:^(BmobUser *user, NSError *error) {
         if (user) {
-            LZYUserModel *model = [[LZYUserModel alloc] initFromBmobObject:user];
-            success(model);
+            success(user);
         }
         else{
             failure(error);
@@ -232,8 +243,7 @@
 {
     [BmobUser loginInbackgroundWithMobilePhoneNumber:mobilePhoneNumber andSMSCode:SMScode block:^(BmobUser *user, NSError *error) {
         if (user) {
-            LZYUserModel *model = [[LZYUserModel alloc] initFromBmobObject:user];
-            success(model);
+            success(user);
         }
         else{
             failure(error);
@@ -252,8 +262,7 @@
     [BmobUser signOrLoginInbackgroundWithMobilePhoneNumber:mobilePhoneNumber andSMSCode:SMScode block:^(BmobUser *user, NSError *error) {
        
         if (user) {
-            LZYUserModel *model = [[LZYUserModel alloc] initFromBmobObject:user];
-            success(model);
+            success(user);
         }
         else{
             failure(error);
@@ -288,10 +297,8 @@
                              failure:(void(^)(id result))failure
 {
     [BmobUser signOrLoginInbackgroundWithMobilePhoneNumber:mobilePhoneNumber SMSCode:SMScode andPassword:password block:^(BmobUser *user, NSError *error) {
-       
         if (user) {
-            LZYUserModel *userModel = [[LZYUserModel alloc] initFromBmobObject:user];
-            success(userModel);
+            success(user);
         }
         else{
             failure(error);
@@ -299,5 +306,65 @@
     }];
 
 }
+
+//验证验证码是否合法
++ (void)verfitySMSWithMobilePhoneNumber:(NSString *)mobilePhoneNumber
+                                SMSCode:(NSString *)smsCode
+                                result:(void(^)(BOOL isSuccess, id error))result;
+{
+    [BmobSMS verifySMSCodeInBackgroundWithPhoneNumber:mobilePhoneNumber andSMSCode:smsCode resultBlock:^(BOOL isSuccessful, NSError *error) {
+        result(isSuccessful, error);
+    }];
+
+}
+
+//重置新密码
++ (void)resetPasswordWithMobilePhoneNumber:(NSString *)mobilePhoneNumber SMSCode:(NSString *)smsCode newPassword:(NSString *)password    result:(void(^)(BOOL isSuccess, id error))result;
+{
+    [BmobUser resetPasswordInbackgroundWithSMSCode:smsCode andNewPassword:password block:^(BOOL isSuccessful, NSError *error) {
+       
+        result(isSuccessful, error);
+        
+    }];
+}
+
+
++ (void)uploadImages:(NSArray *)images
+       progressBlock:(void(^)(int index, float progress))progressBlock
+              result:(void(^)(NSArray *array, BOOL isSuccessfule, NSError *error))block
+{
+    NSMutableArray *datas = @[].mutableCopy;
+    for (UIImage *image in images) {
+        NSString *imageName =[NSString stringWithFormat:@"%@.jpg",[NSString createUUID]];
+        NSData *data = UIImageJPEGRepresentation(image, 0.9);
+        NSDictionary *dict = @{@"filename":imageName,@"data":data};
+        [datas addObject:dict];
+    }
+    [BmobFile filesUploadBatchWithDataArray:datas progressBlock:^(int index, float progress) {
+        progressBlock(index, progress);
+    } resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
+        
+        //block(array,isSuccessful,error);
+        if (!isSuccessful) {
+            return ;
+        }
+        NSMutableArray *urls = @[].mutableCopy;
+        for (BmobFile *file in array) {
+            [urls addObject:file.url];
+        }
+        block(urls,isSuccessful,error);
+        
+    }];
+}
+
++ (void)requestCloudAPI:(NSString *)apiName paramerters:(NSDictionary *)parameters block:(void (^)(id result, NSError *error))result
+{
+    [BmobCloud callFunctionInBackground:apiName withParameters:parameters block:^(id object, NSError *error) {
+        result(object, error);
+        
+    }];
+
+}
+
 
 @end

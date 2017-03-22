@@ -1,5 +1,15 @@
-pod 'BmobSDK'
+platform:ios,'8.0'
+target 'iOSStudy' do
 pod 'CocoaAsyncSocket'
 pod 'CocoaHTTPServer'
-pod 'SDWebImage'
+pod 'CocoaLumberjack'
 pod 'MBProgressHUD'
+pod 'SDWebImage'
+pod 'CTAssetsPickerController'
+pod 'YYKit'
+pod 'RongCloudIM/IMLib', '~> 2.8.3'
+pod 'RongCloudIM/IMKit', '~> 2.8.3' 
+pod 'MJRefresh'
+pod 'BmobSDK','~> 2.1.5'
+pod 'ReactiveObjC','~>2.1.0'
+end
