@@ -284,6 +284,8 @@
 		0F8060CD1E5AC9570027DA85 /* wifi_info_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8060CB1E5AC9570027DA85 /* wifi_info_bg@2x.png */; };
 		0F8060CE1E5AC9570027DA85 /* wifi_info_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F8060CC1E5AC9570027DA85 /* wifi_info_bg.png */; };
 		0F8061111E5AD0210027DA85 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 0F8061101E5AD0210027DA85 /* Web */; };
+		0FA859361E8F367F00A2B60E /* package.json in Sources */ = {isa = PBXBuildFile; fileRef = 0FA859341E8F367F00A2B60E /* package.json */; };
+		0FA859381E8F3D2500A2B60E /* index.ios.js in Resources */ = {isa = PBXBuildFile; fileRef = 0FA859371E8F3D2500A2B60E /* index.ios.js */; };
 		0FA991101E5BD4C400A53A35 /* LZYDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA9910F1E5BD4C400A53A35 /* LZYDynamicViewController.m */; };
 		0FA991131E5BD7EB00A53A35 /* LZYDynamicTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA991121E5BD7EB00A53A35 /* LZYDynamicTitlesView.m */; };
 		0FA991161E5C150500A53A35 /* LZYInviteJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA991151E5C150500A53A35 /* LZYInviteJobViewController.m */; };
@@ -813,6 +815,8 @@
 		0F8060CB1E5AC9570027DA85 /* wifi_info_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi_info_bg@2x.png"; sourceTree = "<group>"; };
 		0F8060CC1E5AC9570027DA85 /* wifi_info_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi_info_bg.png; sourceTree = "<group>"; };
 		0F8061101E5AD0210027DA85 /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
+		0FA859341E8F367F00A2B60E /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		0FA859371E8F3D2500A2B60E /* index.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.ios.js; sourceTree = "<group>"; };
 		0FA9910E1E5BD4C400A53A35 /* LZYDynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYDynamicViewController.h; sourceTree = "<group>"; };
 		0FA9910F1E5BD4C400A53A35 /* LZYDynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYDynamicViewController.m; sourceTree = "<group>"; };
 		0FA991111E5BD7EB00A53A35 /* LZYDynamicTitlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYDynamicTitlesView.h; sourceTree = "<group>"; };
@@ -1702,6 +1706,7 @@
 		0F76A5661E5445E40070EB3D = {
 			isa = PBXGroup;
 			children = (
+				0FA859331E8F363500A2B60E /* ReactNativeCompoent */,
 				0F76A5711E5445E40070EB3D /* iOSStudy */,
 				0F76A58B1E5445E40070EB3D /* iOSStudyTests */,
 				0F76A5961E5445E40070EB3D /* iOSStudyUITests */,
@@ -2172,6 +2177,15 @@
 			path = WIFIUpload;
 			sourceTree = "<group>";
 		};
+		0FA859331E8F363500A2B60E /* ReactNativeCompoent */ = {
+			isa = PBXGroup;
+			children = (
+				0FA859341E8F367F00A2B60E /* package.json */,
+				0FA859371E8F3D2500A2B60E /* index.ios.js */,
+			);
+			path = ReactNativeCompoent;
+			sourceTree = "<group>";
+		};
 		0FAB50271E7EB89800841A49 /* Answer(答题模式) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2410,6 +2424,7 @@
 				0F62AA3D1E62AAC9000DAE72 /* LZYNewsLeftImageTableViewCell.xib in Resources */,
 				0F158E5D1E694C5800C386B1 /* shanguangdeng2.png in Resources */,
 				0FAB503A1E7EB89800841A49 /* LZYExDetailTableViewHeaderView.xib in Resources */,
+				0FA859381E8F3D2500A2B60E /* index.ios.js in Resources */,
 				0F80608C1E5A94A90027DA85 /* Reader-Button-N@3x.png in Resources */,
 				0F8060891E5A94A90027DA85 /* Reader-Button-H@3x.png in Resources */,
 				0F158E621E694C5800C386B1 /* xiang@2x.png in Resources */,
@@ -2553,6 +2568,7 @@
 				0F76A5CC1E55A2580070EB3D /* UIView+Xib.m in Sources */,
 				0FE3091D1E5AEDBA009D75F7 /* LZYMessageViewController.m in Sources */,
 				0F158A951E66C97500C386B1 /* NSString+sha1.m in Sources */,
+				0FA859361E8F367F00A2B60E /* package.json in Sources */,
 				0F76A5DD1E55AF700070EB3D /* LZYDelegateRegister.m in Sources */,
 				0F8060A11E5A94A90027DA85 /* ReaderContentPage.m in Sources */,
 				0F62A8FC1E5EE16F000DAE72 /* LZYSMSTimerManager.m in Sources */,

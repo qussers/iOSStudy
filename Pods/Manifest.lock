@@ -17,6 +17,37 @@ PODS:
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.0)
   - PureLayout (3.0.1)
+  - React/ART (0.42.3):
+    - React/Core
+  - React/Core (0.42.3):
+    - React/cxxreact
+    - Yoga (= 0.42.3.React)
+  - React/cxxreact (0.42.3):
+    - React/jschelpers
+  - React/jschelpers (0.42.3)
+  - React/RCTActionSheet (0.42.3):
+    - React/Core
+  - React/RCTAdSupport (0.42.3):
+    - React/Core
+  - React/RCTGeolocation (0.42.3):
+    - React/Core
+  - React/RCTImage (0.42.3):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTLinkingIOS (0.42.3):
+    - React/Core
+  - React/RCTNetwork (0.42.3):
+    - React/Core
+  - React/RCTPushNotification (0.42.3):
+    - React/Core
+  - React/RCTSettings (0.42.3):
+    - React/Core
+  - React/RCTText (0.42.3):
+    - React/Core
+  - React/RCTVibration (0.42.3):
+    - React/Core
+  - React/RCTWebSocket (0.42.3):
+    - React/Core
   - ReactiveObjC (2.1.2)
   - RongCloudIM/IMKit (2.8.6):
     - RongCloudIM/IMLib
@@ -24,6 +55,7 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
+  - Yoga (0.42.3.React)
   - YYKit (0.9.11):
     - YYKit/no-arc (= 0.9.11)
   - YYKit/no-arc (0.9.11)
@@ -36,11 +68,31 @@ DEPENDENCIES:
   - CTAssetsPickerController
   - MBProgressHUD
   - MJRefresh
+  - React/ART (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/Core (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTActionSheet (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTAdSupport (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTGeolocation (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTImage (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTLinkingIOS (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTNetwork (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTPushNotification (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTSettings (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTText (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTVibration (from `./ReactNativeCompoent/node_modules/react-native`)
+  - React/RCTWebSocket (from `./ReactNativeCompoent/node_modules/react-native`)
   - ReactiveObjC (~> 2.1.0)
   - RongCloudIM/IMKit (~> 2.8.3)
   - RongCloudIM/IMLib (~> 2.8.3)
   - SDWebImage
+  - Yoga (from `./ReactNativeCompoent/node_modules/react-native/ReactCommon/yoga`)
   - YYKit
+
+EXTERNAL SOURCES:
+  React:
+    :path: "./ReactNativeCompoent/node_modules/react-native"
+  Yoga:
+    :path: "./ReactNativeCompoent/node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   BmobSDK: 9b4ae6d8de903affaee9703cf082f7f6b03ceba4
@@ -51,11 +103,13 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  React: 35e039680feacd0563677d49ba410112d2748559
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
   RongCloudIM: f35630e60f7d393ea93b04d4cd6152c9191b8d05
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  Yoga: 86ce777665c8259b94ef8dbea76b84634237f4ea
   YYKit: 76c3f2cee1a72d3c5b1d7fd8d170ee507fe5df68
 
-PODFILE CHECKSUM: ed2f39cde8fea0ba45c7a3f36990ad6a51f02382
+PODFILE CHECKSUM: 4ff759cdb6885ead05fa3a985f71a223fd290447
 
 COCOAPODS: 1.2.0
