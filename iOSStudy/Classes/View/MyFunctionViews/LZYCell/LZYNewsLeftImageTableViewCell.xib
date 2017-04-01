@@ -21,7 +21,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon-076.png" translatesAutoresizingMaskIntoConstraints="NO" id="hKA-zF-HOY">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon-076.png" translatesAutoresizingMaskIntoConstraints="NO" id="hKA-zF-HOY">
                         <rect key="frame" x="8" y="8" width="105" height="70"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="hKA-zF-HOY" secondAttribute="height" multiplier="3:2" id="Ja7-ts-zdb"/>
@@ -61,6 +61,11 @@
                     <constraint firstItem="hKA-zF-HOY" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="105:320" id="qI0-Qs-h2m"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="iconImageView" destination="hKA-zF-HOY" id="IvV-ab-LBW"/>
+                <outlet property="sourceLabel" destination="ONU-Cw-0np" id="rPg-rd-Vla"/>
+                <outlet property="titleLabel" destination="Dz4-pN-SDv" id="F1W-Wc-ey0"/>
+            </connections>
             <point key="canvasLocation" x="-1" y="131"/>
         </tableViewCell>
     </objects>

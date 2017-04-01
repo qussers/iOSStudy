@@ -24,13 +24,19 @@
 #import <YYKit.h>
 #import "LZYExpertModel.h"
 #import "UIButton+LZYWebCache.h"
+#import "UIImageView+LZYWebCache.h"
 #import "LZYWebPushTool.h"
+#import "LZYWebHotPointModel.h"
 @interface LZYBrowserViewController ()<UITableViewDelegate,UITableViewDataSource,LZYBrowserHeaderViewDelegate,LZYMoreButtonTableViewCellDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LZYBrowserHeaderView *searchHeaderView;
 
+//技术大咖
 @property (nonatomic, strong) NSMutableArray *expertData;
+
+//今日热点
+@property (nonatomic, strong) NSMutableArray *hotPointData;
 
 @end
 
@@ -116,7 +122,9 @@ CGFloat headerViewDefaultHeight = 80;
         if ([result isKindOfClass:[NSDictionary class]]) {
             //字典转模型
             NSArray *experts = [NSArray modelArrayWithClass:[LZYExpertModel class] json:result[@"LZYExpertModel"]];
+            NSArray *hotPoints = [NSArray modelArrayWithClass:[LZYWebHotPointModel class] json:result[@"LZYWebHotPointModel"]];
             self.expertData.array = experts;
+            self.hotPointData.array = hotPoints;
             [self.tableView reloadData];
         }
     }];
@@ -138,7 +146,7 @@ CGFloat headerViewDefaultHeight = 80;
             return 1 + 1;
             break;
         case 1:
-            return 6 + 1;
+            return 5 + 1;
             break;
         case 2:
             return 1 + 1;
@@ -167,7 +175,7 @@ CGFloat headerViewDefaultHeight = 80;
                 cell.titleLabel.text = @"技术大咖";
                 break;
             case 1:
-                cell.titleLabel.text = @"今日练习";
+                cell.titleLabel.text = @"今日热点";
                 break;
             case 2:
                 cell.titleLabel.text = @"源码解析";
@@ -191,7 +199,7 @@ CGFloat headerViewDefaultHeight = 80;
         case 0:{
             LZYMoreButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LZYMoreButtonTableViewCell" forIndexPath:indexPath];
             cell.delegate = self;
-            [self configeExpertCell:cell];
+            [self configeExpertCell:cell  data:self.expertData];
             return cell;
         
         }
@@ -199,7 +207,9 @@ CGFloat headerViewDefaultHeight = 80;
             //今日练习
         case 1:{
             LZYNewsLeftImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LZYNewsLeftImageTableViewCell" forIndexPath:indexPath];
-            
+            if (self.hotPointData.count > 0) {
+                [self configeHotPointCell:cell data:self.hotPointData[indexPath.row - 1]];
+            }
             return cell;
         }
             break;
@@ -349,8 +359,7 @@ CGFloat headerViewDefaultHeight = 80;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [cell setSelected:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     LZYBrowserSearchWebViewController *v = [[LZYBrowserSearchWebViewController alloc] init];
     v.webUrl = @"https://m.baidu.com";
     [self.navigationController pushViewController:v animated:YES];
@@ -416,16 +425,16 @@ CGFloat headerViewDefaultHeight = 80;
 
 #pragma mark - configeCell
 
-- (void)configeExpertCell:(LZYMoreButtonTableViewCell *)cell
+- (void)configeExpertCell:(LZYMoreButtonTableViewCell *)cell data:(NSArray *)data
 {
 
     if (!_expertData) {
         return;
     }
     //遍历
-    for ( NSUInteger i = 0, max = self.expertData.count ; i < max ; i++) {
+    for ( NSUInteger i = 0, max = data.count ; i < max ; i++) {
         UIView *V = [cell.buttonsView viewWithTag:i + 1];
-        LZYExpertModel *model = self.expertData[i];
+        LZYExpertModel *model = data[i];
         for (UIView *subV in V.subviews) {
             if ([subV isKindOfClass:[UIButton class]]) {
                 UIButton *btn = (UIButton *)subV;
@@ -437,7 +446,14 @@ CGFloat headerViewDefaultHeight = 80;
             }
         }
     }
+}
 
+
+- (void)configeHotPointCell:(LZYNewsLeftImageTableViewCell *)cell data:(LZYWebHotPointModel *)model
+{
+    [cell.iconImageView lzy_setImageWithURL:model.icon];
+    cell.titleLabel.text = model.name;
+    cell.sourceLabel.text = model.source;
 }
 
 
@@ -473,22 +489,27 @@ CGFloat headerViewDefaultHeight = 80;
             model.domainName = urls[i];
             [titlesArr addObject:model];
         }
-        
         _searchHeaderView.tabTitles = titlesArr;
     }
-    
     return _searchHeaderView;
 }
 
 
 #pragma mark - lazy
-
 - (NSMutableArray *)expertData
 {
     if (!_expertData) {
         _expertData = @[].mutableCopy;
     }
     return _expertData;
+}
+
+- (NSMutableArray *)hotPointData
+{
+    if (!_hotPointData) {
+        _hotPointData = @[].mutableCopy;
+    }
+    return _hotPointData;
 }
 
 @end

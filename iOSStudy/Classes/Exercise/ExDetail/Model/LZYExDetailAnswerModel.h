@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface LZYExDetailAnswerModel : NSObject
+
 @property (nonatomic, assign) NSInteger index;
+
 @property (nonatomic, copy) NSString *content;
+
 @end

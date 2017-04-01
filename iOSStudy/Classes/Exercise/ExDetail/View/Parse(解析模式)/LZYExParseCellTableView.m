@@ -22,8 +22,6 @@
     //选中条状态
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-
-    
     //注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([LZYExDetailTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([LZYExDetailTableViewCell class])];
     

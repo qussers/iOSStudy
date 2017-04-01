@@ -130,6 +130,10 @@
 		0F41F8D41E795C0E00FD045A /* LZYExTitleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F41F8C91E795C0E00FD045A /* LZYExTitleViewModel.m */; };
 		0F41F8DE1E795D9300FD045A /* LZYExDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F41F8DD1E795D9300FD045A /* LZYExDetailModel.m */; };
 		0F41F8ED1E7965DB00FD045A /* LZYExDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F41F8EC1E7965DB00FD045A /* LZYExDetailViewController.m */; };
+		0F4718D71E82685B008AF719 /* LZYWebHotPointModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4718D61E82685B008AF719 /* LZYWebHotPointModel.m */; };
+		0F4718DA1E826ADE008AF719 /* LZYWebCodeParseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4718D91E826ADE008AF719 /* LZYWebCodeParseModel.m */; };
+		0F4718DD1E826B4A008AF719 /* LZYWebGoodBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4718DC1E826B4A008AF719 /* LZYWebGoodBookModel.m */; };
+		0F4718E01E826CDC008AF719 /* LZYWebBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4718DF1E826CDC008AF719 /* LZYWebBaseModel.m */; };
 		0F5A22691E80CD2800E869A1 /* LZYExSubmitResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5A22671E80CD2800E869A1 /* LZYExSubmitResultCollectionViewCell.m */; };
 		0F5A226A1E80CD2800E869A1 /* LZYExSubmitResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5A22681E80CD2800E869A1 /* LZYExSubmitResultCollectionViewCell.xib */; };
 		0F5A226D1E80D0CF00E869A1 /* LZYExSubmitBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5A226C1E80D0CF00E869A1 /* LZYExSubmitBottom.m */; };
@@ -553,6 +557,14 @@
 		0F41F8DD1E795D9300FD045A /* LZYExDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYExDetailModel.m; sourceTree = "<group>"; };
 		0F41F8EB1E7965DB00FD045A /* LZYExDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYExDetailViewController.h; sourceTree = "<group>"; };
 		0F41F8EC1E7965DB00FD045A /* LZYExDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYExDetailViewController.m; sourceTree = "<group>"; };
+		0F4718D51E82685B008AF719 /* LZYWebHotPointModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYWebHotPointModel.h; sourceTree = "<group>"; };
+		0F4718D61E82685B008AF719 /* LZYWebHotPointModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYWebHotPointModel.m; sourceTree = "<group>"; };
+		0F4718D81E826ADE008AF719 /* LZYWebCodeParseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYWebCodeParseModel.h; sourceTree = "<group>"; };
+		0F4718D91E826ADE008AF719 /* LZYWebCodeParseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYWebCodeParseModel.m; sourceTree = "<group>"; };
+		0F4718DB1E826B4A008AF719 /* LZYWebGoodBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYWebGoodBookModel.h; sourceTree = "<group>"; };
+		0F4718DC1E826B4A008AF719 /* LZYWebGoodBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYWebGoodBookModel.m; sourceTree = "<group>"; };
+		0F4718DE1E826CDC008AF719 /* LZYWebBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYWebBaseModel.h; sourceTree = "<group>"; };
+		0F4718DF1E826CDC008AF719 /* LZYWebBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYWebBaseModel.m; sourceTree = "<group>"; };
 		0F5A22661E80CD2800E869A1 /* LZYExSubmitResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZYExSubmitResultCollectionViewCell.h; sourceTree = "<group>"; };
 		0F5A22671E80CD2800E869A1 /* LZYExSubmitResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZYExSubmitResultCollectionViewCell.m; sourceTree = "<group>"; };
 		0F5A22681E80CD2800E869A1 /* LZYExSubmitResultCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LZYExSubmitResultCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1294,6 +1306,14 @@
 		0F41F7BF1E7154A600FD045A /* WebModel */ = {
 			isa = PBXGroup;
 			children = (
+				0F4718D51E82685B008AF719 /* LZYWebHotPointModel.h */,
+				0F4718D61E82685B008AF719 /* LZYWebHotPointModel.m */,
+				0F4718D81E826ADE008AF719 /* LZYWebCodeParseModel.h */,
+				0F4718D91E826ADE008AF719 /* LZYWebCodeParseModel.m */,
+				0F4718DB1E826B4A008AF719 /* LZYWebGoodBookModel.h */,
+				0F4718DC1E826B4A008AF719 /* LZYWebGoodBookModel.m */,
+				0F4718DE1E826CDC008AF719 /* LZYWebBaseModel.h */,
+				0F4718DF1E826CDC008AF719 /* LZYWebBaseModel.m */,
 			);
 			path = WebModel;
 			sourceTree = "<group>";
@@ -1647,7 +1667,7 @@
 			name = "首页";
 			sourceTree = "<group>";
 		};
-		0F6D746F1E5D8ED9004B6B2C /* 练习 */ = {
+		0F6D746F1E5D8ED9004B6B2C /* 动态 */ = {
 			isa = PBXGroup;
 			children = (
 				0F8060371E59EDD50027DA85 /* LZYTestEveryDayViewController.h */,
@@ -1663,7 +1683,7 @@
 				0FD64F631E6315A000174C63 /* LZYBrowserSearchWebViewController.h */,
 				0FD64F641E6315A000174C63 /* LZYBrowserSearchWebViewController.m */,
 			);
-			name = "练习";
+			name = "动态";
 			sourceTree = "<group>";
 		};
 		0F6D74701E5D97DA004B6B2C /* 编辑 */ = {
@@ -1753,7 +1773,7 @@
 		0F76A5A61E5447AE0070EB3D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0F6D746F1E5D8ED9004B6B2C /* 练习 */,
+				0F6D746F1E5D8ED9004B6B2C /* 动态 */,
 				0F6D746D1E5D8EC0004B6B2C /* 首页 */,
 				0F6D746C1E5D8EA6004B6B2C /* 我 */,
 				0F6D746B1E5D8E8A004B6B2C /* 交流 */,
@@ -2564,6 +2584,7 @@
 				0F41F8DE1E795D9300FD045A /* LZYExDetailModel.m in Sources */,
 				0F62AA341E62AAC9000DAE72 /* LZYInterviewTableViewCell.m in Sources */,
 				0F158A741E657E4B00C386B1 /* LZYCommentModel.m in Sources */,
+				0F4718E01E826CDC008AF719 /* LZYWebBaseModel.m in Sources */,
 				0F158E4B1E694C5800C386B1 /* ZLCamera.m in Sources */,
 				0FAB50441E7EC5F600841A49 /* LZYExDetailViewModel.m in Sources */,
 				0F8060A61E5A94A90027DA85 /* ReaderMainPagebar.m in Sources */,
@@ -2588,6 +2609,7 @@
 				0F05171F1E589368000EBF72 /* LZYPersonBackgroundView.m in Sources */,
 				0F1320161E7BDD5400655191 /* UIViewController+LZYPopAdd.m in Sources */,
 				0F158A9C1E66D2B500C386B1 /* LZYFunctionViewController.m in Sources */,
+				0F4718DA1E826ADE008AF719 /* LZYWebCodeParseModel.m in Sources */,
 				0F62A9051E5FBF48000DAE72 /* LZYResetPasswordTableViewController.m in Sources */,
 				0F62A8EF1E5EC0E6000DAE72 /* UIImageView+LZYWebCache.m in Sources */,
 				0F158E391E694C5800C386B1 /* LGPhotoPickerImageView.m in Sources */,
@@ -2615,6 +2637,7 @@
 				0F41F7C31E715D9B00FD045A /* LZYWebPushTool.m in Sources */,
 				0FAB50431E7EC5F600841A49 /* LZYExDetailCellViewModel.m in Sources */,
 				0F158E4A1E694C5800C386B1 /* LGCameraImageView.m in Sources */,
+				0F4718D71E82685B008AF719 /* LZYWebHotPointModel.m in Sources */,
 				0F6D746A1E5D8E72004B6B2C /* LZYHelpViewController.m in Sources */,
 				0F5D3B041E7FA71F001E0284 /* LZYExParseCollectionView.m in Sources */,
 				0F158A711E657C9700C386B1 /* LZYCommentLayoutModel.m in Sources */,
@@ -2676,6 +2699,7 @@
 				0F158A991E66D17700C386B1 /* LZYNearChatViewController.m in Sources */,
 				0F5D3B121E7FB176001E0284 /* LZYExParseResultTableViewCell.m in Sources */,
 				0F41F8CD1E795C0E00FD045A /* LZYExSubTitleCell.m in Sources */,
+				0F4718DD1E826B4A008AF719 /* LZYWebGoodBookModel.m in Sources */,
 				0F158D3B1E68355400C386B1 /* LZYEditHelpViewController.m in Sources */,
 				0F8060A71E5A94A90027DA85 /* ReaderMainToolbar.m in Sources */,
 				0FA991281E5D302C00A53A35 /* LZYWaveView.m in Sources */,

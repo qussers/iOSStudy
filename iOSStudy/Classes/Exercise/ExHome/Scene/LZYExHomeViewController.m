@@ -11,6 +11,10 @@
 #import "LZYGlobalDefine.h"
 #import "LZYExDetailViewController.h"
 
+
+//Test
+#import "LZYWebCodeParseModel.h"
+
 @interface LZYExHomeViewController ()
 
 @property (nonatomic, strong) LZYExTitleTableView *titleTableView;
@@ -27,6 +31,12 @@
     [self addUI];
     [self requestData];
     
+    LZYWebCodeParseModel *model = [[LZYWebCodeParseModel alloc] init];
+    model.url = @"http://www.baidu.com";
+    model.name = @"测试数据";
+    model.source = @"测试数据";
+    model.icon = @"http://www.baidu.com";    
+    [model sub_saveInBackground];
 }
 
 - (void)didReceiveMemoryWarning {

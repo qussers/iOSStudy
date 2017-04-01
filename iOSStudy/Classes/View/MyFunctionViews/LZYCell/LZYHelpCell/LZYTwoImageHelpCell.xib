@@ -32,14 +32,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAf-34-fK6">
                                 <rect key="frame" x="8" y="52" width="339" height="135"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zHc-I8-8Fa">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zHc-I8-8Fa">
                                         <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zHc-I8-8Fa" secondAttribute="height" multiplier="1:1" id="D3d-NL-VWp"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XqK-zd-AIv">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XqK-zd-AIv">
                                         <rect key="frame" x="143" y="0.0" width="135" height="135"/>
                                         <gestureRecognizers/>
                                     </imageView>

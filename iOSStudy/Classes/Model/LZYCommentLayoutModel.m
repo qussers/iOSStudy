@@ -40,12 +40,5 @@
     }
 
     self.cellFrame = CGRectMake(0, 0, LZYSCREEN_WIDTH, CGRectGetMaxY(self.rewardBtnFrame) + 8);
-    
-    
-    
-    
-    
-    
-    
 }
 @end
